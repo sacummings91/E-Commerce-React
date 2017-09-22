@@ -1,0 +1,121 @@
+@import '//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css';
+
+.ClothingItemComponent {
+  margin: 20px;
+}
+
+.ClothingItemsComponent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-brand-name {
+  margin-left: 35%;
+}
+
+.CategoriesComponent {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.call-to-action {
+  background-image: url('./img/dark-sea.jpg');
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.call-to-action h2 {
+  color: white;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  padding: 10%;
+  padding-bottom: 5%;
+}
+
+.ui.breadcrumb a.active {
+  color: black;
+  font-weight: bold;
+}
+
+h1.ui.header {
+  text-transform: uppercase;
+}
+
+.IndividualItemComponent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#ItemImage {
+  margin: 10px;
+  margin-right: 40px;
+}
+
+.ItemInfo {
+  margin-top: 45px;
+}
+
+.AddToCartButton {
+  width: 150px;
+}
+
+.full-table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.overview {
+  text-align: center;
+}
+
+.ui.collapsing.table {
+  width: 100%;
+}
+
+a.continue-shopping {
+  color: white;
+}
+
+a.add-to-cart {
+  color: white;
+}
+
+.ui.black.button.add-to-cart-button {
+  width: 100%;
+}
+
+h2.ui.header {
+  text-align: center;
+}
+
+h1.ui.header.create-new-item {
+  text-align: center;
+}
+
+button.ui.grey.button {
+  width: 200px;
+}
+
+.ui.fluid.selection.dropdown {
+  width: 30%;
+}
+
+.update-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer {
+  background: black;
+  padding: 5px 0 5px 0;
+}
+
+.admin {
+  color: white;
+}

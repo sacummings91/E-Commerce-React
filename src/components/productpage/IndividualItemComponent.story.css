@@ -1,0 +1,17 @@
+.IndividualItemComponent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#ItemImage {
+  margin: 10px;
+  margin-right: 40px;
+}
+
+.ItemInfo {
+  margin-top: 80px;
+}
+
+.AddToCartButton {
+  width: 150px;
+}

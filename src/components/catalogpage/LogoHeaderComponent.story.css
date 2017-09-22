@@ -1,0 +1,20 @@
+.call-to-action {
+  background-image: url('../../img/dark-sea.jpg');
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.call-to-action h2 {
+  color: white;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  padding: 10%;
+  padding-bottom: 5%;
+}
+
+.shop-now-button button {
+  margin-left: 42%;
+}
