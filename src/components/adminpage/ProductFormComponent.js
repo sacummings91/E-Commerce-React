@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import './ProductForm.css';
 import { Form, Header, Segment, Dropdown } from 'semantic-ui-react';
 
 const categories = [
@@ -50,6 +53,15 @@ export default class ProductFormComponent extends Component {
         </div>
         <Segment inverted>
           <Form inverted onSubmit={this._submitProductClick}>
+            <ToastContainer
+              position="top-right"
+              type="default"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              pauseOnHover
+            />
             <Form.Group>
               <Form.Input
                 label="Product Name"
@@ -110,6 +122,15 @@ export default class ProductFormComponent extends Component {
                 color="red"
                 onClick={this._deleteProductClick}>
                 Delete Item
+                <ToastContainer
+                  position="top-right"
+                  type="default"
+                  autoClose={2000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  pauseOnHover
+                />
               </Form.Button>
             </div>
           </Form>
@@ -121,9 +142,23 @@ export default class ProductFormComponent extends Component {
   _submitProductClick = (event, data) => {
     event.preventDefault();
     const { onSubmit } = this.props;
+    toast('Submit Successful!', {
+      className: 'dark-toast',
+      progressClassName: 'transparent-progress'
+    });
     onSubmit({
       ...this.state.formValues,
       price: parseFloat(this.state.formValues.price)
+    }).then(() => {
+      this.setState({
+        formValues: {
+          name: '',
+          category: '',
+          description: '',
+          price: '',
+          imageUrl: ''
+        }
+      });
     });
   };
 
@@ -151,6 +186,10 @@ export default class ProductFormComponent extends Component {
     event.preventDefault();
     const { onDelete } = this.props;
     const id = this.state.formValues.id;
+    toast('Delete Successful!', {
+      className: 'delete-toast',
+      progressClassName: 'transparent-progress'
+    });
     onDelete({ id }).then(() => {
       this.setState({
         formValues: {

@@ -7,10 +7,11 @@ export default function ClothingItemComponent({ item, addToCart }) {
     event.preventDefault();
     addToCart(item);
   }
+
   return (
     <div className="ClothingItemComponent">
       <Card>
-        <Image src={item.imageUrl} alt={item.name} />
+        <Image fluid src={item.imageUrl} alt={item.name} />
         <Card.Content>
           <Header as="h2" textAlign="center">
             <NavLink exact to={`/products/${item.id}`}>

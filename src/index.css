@@ -19,20 +19,18 @@
 }
 
 .call-to-action {
-  background-image: url('./img/dark-sea.jpg');
+  background-image: url('./img/stevenbanner1.jpg');
   background-size: cover;
   height: 400px;
   width: 100%;
   position: relative;
 }
 
-.call-to-action h2 {
-  color: white;
-  font-weight: 600;
-  margin: 0;
-  text-align: center;
-  padding: 10%;
-  padding-bottom: 5%;
+.call-to-action img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .ui.breadcrumb a.active {
@@ -56,6 +54,7 @@ h1.ui.header {
 
 .ItemInfo {
   margin-top: 45px;
+  width: 40%;
 }
 
 .AddToCartButton {
@@ -118,4 +117,8 @@ button.ui.grey.button {
 
 .admin {
   color: white;
+}
+
+img.ui.fluid.image {
+  max-height: 300px;
 }

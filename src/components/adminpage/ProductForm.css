@@ -1,0 +1,13 @@
+.dark-toast {
+  background: #323232;
+  color: #fff;
+}
+
+.transparent-progress {
+  background: rgba(255, 255, 255, .7);
+}
+
+.delete-toast {
+  background: #db2828;
+  color: #fff;
+}

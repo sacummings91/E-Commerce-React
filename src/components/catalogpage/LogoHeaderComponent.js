@@ -1,9 +1,10 @@
 import React from 'react';
+import logoImage from '../../img/stevenlogofinal.jpg';
 
 export default function LogoHeaderComponent() {
   return (
     <div className="call-to-action">
-      <h2>Some Title</h2>
+      <img src={logoImage} alt="drab logo" />
     </div>
   );
 }
