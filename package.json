@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "deep-freeze": "0.0.1",
+    "dotenv": "^4.0.0",
     "font-awesome": "^4.7.0",
     "global": "^4.3.2",
     "jest-fetch-mock": "^1.2.1",

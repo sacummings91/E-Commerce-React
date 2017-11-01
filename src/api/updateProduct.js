@@ -1,18 +1,14 @@
-import recordToProduct from './utils/recordToProduct';
+import env from '../env.js';
 
 export default function updateProduct(id, changes) {
   console.log('these are the changes', changes);
-  delete changes.nid;
-  return fetch(`https://api.airtable.com/v0/appaDTIil2odK72vS/products/${id}`, {
+  return fetch(`${env.REACT_APP_API_BASE_URL}/items/${id}`, {
     method: 'PATCH',
     headers: {
-      Authorization: `Bearer key3ct3d81IvkitCi`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      fields: changes
-    })
-  })
-    .then(response => response.json())
-    .then(record => recordToProduct(record));
+    body: JSON.stringify(changes)
+  }).then(response => {
+    return response.json();
+  });
 }

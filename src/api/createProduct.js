@@ -1,25 +1,24 @@
-import recordToProduct from './utils/recordToProduct';
+import env from '../env.js';
 
 export default function createProduct(product) {
-  console.log(product);
-  return fetch('https://api.airtable.com/v0/appaDTIil2odK72vS/products', {
+  return fetch(`${env.REACT_APP_API_BASE_URL}/items`, {
     method: 'POST',
     headers: {
-      Authorization: 'Bearer key3ct3d81IvkitCi',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      fields: {
-        nid: product.nid,
-        name: product.name,
-        description: product.description,
-        category: product.category,
-        isFeatured: product.isFeatured,
-        price: product.price,
-        imageUrl: product.imageUrl
-      }
+      name: product.name,
+      description: product.description,
+      category: product.category,
+      isFeatured: product.isFeatured || false,
+      price: product.price,
+      imageUrl: product.imageUrl
     })
   })
-    .then(response => response.json())
-    .then(recordToProduct);
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      return response;
+    });
 }

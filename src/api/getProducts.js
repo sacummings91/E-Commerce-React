@@ -1,11 +1,11 @@
-import recordToProduct from './utils/recordToProduct';
+import env from '../env.js';
 
 export default function getProducts() {
-  return fetch('https://api.airtable.com/v0/appaDTIil2odK72vS/products', {
-    headers: {
-      Authorization: 'Bearer key3ct3d81IvkitCi'
-    }
-  })
-    .then(response => response.json())
-    .then(data => data.records.map(recordToProduct));
+  return fetch(`${env.REACT_APP_API_BASE_URL}/items`, {})
+    .then(response => {
+      return response.json();
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }

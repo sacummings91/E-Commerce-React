@@ -1,13 +1,9 @@
-export default function deleteProduct(productId) {
-  return fetch(
-    `https://api.airtable.com/v0/appaDTIil2odK72vS/products/${productId}`,
-    {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'Bearer key3ct3d81IvkitCi'
-      }
-    }
-  )
+import env from '../env.js';
+
+export default function deleteProduct(Id) {
+  return fetch(`${env.REACT_APP_API_BASE_URL}/items/${Id}`, {
+    method: 'DELETE'
+  })
     .then(response => response.json())
     .then(data => {
       return data;

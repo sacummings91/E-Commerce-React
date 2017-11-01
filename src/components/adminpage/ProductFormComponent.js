@@ -7,7 +7,7 @@ import { Form, Header, Segment, Dropdown } from 'semantic-ui-react';
 const categories = [
   { key: 's', text: 'Shirt', value: 'Shirts' },
   { key: 'j', text: 'Jacket', value: 'Jackets' },
-  { key: 'b', text: 'Bottoms', value: 'Botoms' },
+  { key: 'b', text: 'Bottoms', value: 'Bottoms' },
   { key: 'f', text: 'Footwear', value: 'Footwear' }
 ];
 
@@ -28,13 +28,13 @@ export default class ProductFormComponent extends Component {
   render() {
     const products = this.props.clothingItems.map(item => {
       return {
-        key: item.nid,
+        key: item.id,
         text: item.name,
-        value: item.nid,
+        value: item.id,
         image: item.imageUrl
       };
     });
-
+    console.log(this.state, 'product form component');
     return (
       <div>
         <div className="admin-selector">
@@ -45,7 +45,7 @@ export default class ProductFormComponent extends Component {
             selection
             options={products}
             onChange={this._selectProductClick}
-            value={this.state.formValues.nid || ''}
+            value={this.state.formValues.id || ''}
           />
           <Header className="create-new-item" as="h1">
             UPDATE PRODUCTS
@@ -165,7 +165,7 @@ export default class ProductFormComponent extends Component {
   _selectProductClick = (event, data) => {
     event.preventDefault();
     let selection = this.props.clothingItems.find(itemObj => {
-      return itemObj.nid === data.value;
+      return itemObj.id === data.value;
     });
     this.setState({ formValues: selection });
   };
