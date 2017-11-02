@@ -36,6 +36,14 @@ export default function rootReducer(
           product => product.id !== action.productId
         )
       };
+    case 'CREATE_USER':
+      return {
+        ...currentState,
+        usersById: {
+          ...currentState.usersById,
+          [action.user.id]: action.user
+        }
+      };
     default:
       return currentState;
   }

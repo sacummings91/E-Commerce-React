@@ -1,7 +1,7 @@
-import env from '../env.js';
+import env from '../env';
 
 export default function getProducts() {
-  return fetch(`${env.REACT_APP_API_BASE_URL}/items`, {})
+  return fetch(`${env.API_BASE_URL}/items`)
     .then(response => {
       return response.json();
     })

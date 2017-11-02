@@ -5,9 +5,12 @@
   "dependencies": {
     "deep-freeze": "0.0.1",
     "dotenv": "^4.0.0",
+    "eslint-config-react-app": "^2.0.1",
     "font-awesome": "^4.7.0",
     "global": "^4.3.2",
     "jest-fetch-mock": "^1.2.1",
+    "jwt-decode": "^2.2.0",
+    "lodash.isempty": "^4.4.0",
     "qs": "^6.5.1",
     "react": "^15.6.1",
     "react-redux": "^5.0.6",

@@ -11,9 +11,14 @@ export default function NavbarComponent() {
             Home
           </NavLink>
         </Menu.Item>
-        <Menu.Item className="menu-brand-name">
-          <NavLink exact to="/">
-            Some Brand Name
+        <Menu.Item>
+          <NavLink exact to="/login">
+            Login
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item link={false}>
+          <NavLink exact to="/signup">
+            Sign Up
           </NavLink>
         </Menu.Item>
         <Menu.Menu position="right">

@@ -10,9 +10,11 @@ function mapStateToProps(state, ownProps) {
   const queryString = ownProps.location.search || '';
   const queryParams = qs.parse(queryString.replace('?', ''));
   const category = queryParams.category;
-  const clothingItems = state.clothingItems.filter(
-    item => (category ? item.category === category : item.isFeatured)
-  );
+  const clothingItems = !state.clothingItems
+    ? (state.clothingItems = [])
+    : state.clothingItems.filter(
+        item => (category ? item.category === category : item.isFeatured)
+      );
 
   return {
     clothingItems,
