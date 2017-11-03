@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import qs from 'qs';
 
 import CatalogPage from '../../components/catalogpage/CatalogPage';
-
+import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 import getProductsProcess from '../thunks/getProductsProcess';
+import LogoutProcess from '../thunks/logoutProcess';
 
 function mapStateToProps(state, ownProps) {
   const queryString = ownProps.location.search || '';
@@ -18,14 +19,16 @@ function mapStateToProps(state, ownProps) {
 
   return {
     clothingItems,
-    selectedCategory: category
+    selectedCategory: category,
+    authenticatedUser: selectAuthenticatedUser(state)
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getProductsProcess()),
-    addToCart: item => dispatch({ type: 'ADD_ITEM', item })
+    addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
+    logout: () => dispatch(LogoutProcess.create())
   };
 }
 

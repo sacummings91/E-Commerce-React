@@ -12,15 +12,16 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
-  return {};
+  return {
+    login: credentials =>
+      dispatch(LoginProcess.create(credentials, ownProps.history))
+  };
 }
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const addLifecycle = lifecycle({
-  componentDidMount() {
-    this.props.initialize(this.props);
-  }
+  componentDidMount() {}
 });
 
 export default connectToStore(addLifecycle(LoginPage));

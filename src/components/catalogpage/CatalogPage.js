@@ -9,15 +9,20 @@ import FooterComponent from './../FooterComponent';
 export default function CatalogPage({
   clothingItems,
   selectedCategory,
-  addToCart
+  addToCart,
+  authenticatedUser,
+  logout = () => {}
 }) {
   return (
     <CatalogPageLayout>
-      <NavbarComponent />
+      <NavbarComponent
+        onLogout={logout}
+        authenticatedUser={authenticatedUser}
+      />
       <LogoHeaderComponent />
       <CategoriesComponent selectedCategory={selectedCategory} />
       <ClothingItemsComponent items={clothingItems} addToCart={addToCart} />
-      <FooterComponent />
+      <FooterComponent authenticatedUser={authenticatedUser} />
     </CatalogPageLayout>
   );
 }

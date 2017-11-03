@@ -26,14 +26,18 @@ export default class ProductFormComponent extends Component {
   }
 
   render() {
-    const products = this.props.clothingItems.map(item => {
-      return {
-        key: item.id,
-        text: item.name,
-        value: item.id,
-        image: item.imageUrl
-      };
-    });
+    let products = [];
+    if (this.props.clothingItems) {
+      products = this.props.clothingItems.map(item => {
+        return {
+          key: item.id,
+          text: item.name,
+          value: item.id,
+          image: item.imageUrl
+        };
+      });
+    }
+
     console.log(this.state, 'product form component');
     return (
       <div>

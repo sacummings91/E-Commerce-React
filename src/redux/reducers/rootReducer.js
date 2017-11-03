@@ -2,7 +2,10 @@ export default function rootReducer(
   currentState = {
     clothingItems: [],
     clothingItem: {},
-    cartItems: []
+    cartItems: [],
+    token: {},
+    authenticatedUserId: {},
+    usersById: {}
   },
   action
 ) {
@@ -37,11 +40,34 @@ export default function rootReducer(
         )
       };
     case 'CREATE_USER':
+      console.log(action.user);
       return {
         ...currentState,
         usersById: {
           ...currentState.usersById,
           [action.user.id]: action.user
+        }
+      };
+    case 'LOGIN':
+      return {
+        ...currentState,
+        token: action.token,
+        authenticatedUserId: action.user ? action.user.id : undefined,
+        usersById: action.user
+          ? {
+              ...currentState.usersById,
+              [action.user.id]: action.user
+            }
+          : currentState.usersById
+      };
+    case 'LOGOUT':
+      return {
+        ...currentState,
+        token: undefined,
+        authenticatedUserId: undefined,
+        usersById: {
+          ...currentState.usersById,
+          [currentState.authenticatedUserId]: undefined
         }
       };
     default:

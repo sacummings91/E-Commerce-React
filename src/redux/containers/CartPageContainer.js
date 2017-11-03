@@ -1,4 +1,3 @@
-// import { compose } from 'recompose';
 import { connect } from 'react-redux';
 
 import CartPage from '../../components/cartpage/CartPage';

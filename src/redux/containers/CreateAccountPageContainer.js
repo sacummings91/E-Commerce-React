@@ -23,7 +23,9 @@ function mapDispatchToProps(dispatch, ownProps) {
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const withLifecycle = lifecycle({
-  componentDidMount() {}
+  componentDidMount() {
+    if (this.props.authenticatedUser) this.props.history.push('/');
+  }
 });
 
 export default compose(connectToStore, withLifecycle)(CreateAccountPage);

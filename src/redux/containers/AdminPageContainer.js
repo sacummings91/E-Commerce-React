@@ -7,11 +7,14 @@ import getProductsProcess from '../thunks/getProductsProcess';
 import createProductProcess from '../thunks/createProductProcess';
 import updateProductProcess from '../thunks/updateProductProcess';
 import deleteProductProcess from '../thunks/deleteProductProcess';
+import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
+import LogoutProcess from '../thunks/logoutProcess';
 
 function mapStateToProps(state, ownProps) {
   console.log(state);
   return {
-    clothingItems: state.clothingItems
+    clothingItems: state.clothingItems,
+    authenticatedUser: selectAuthenticatedUser(state)
   };
 }
 
@@ -22,7 +25,8 @@ function mapDispatchToProps(dispatch, ownProps) {
       id
         ? dispatch(updateProductProcess(id, changes))
         : dispatch(createProductProcess(changes)),
-    onDelete: ({ id }) => dispatch(deleteProductProcess(id))
+    onDelete: ({ id }) => dispatch(deleteProductProcess(id)),
+    logout: () => dispatch(LogoutProcess.create())
   };
 }
 

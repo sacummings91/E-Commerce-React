@@ -4,10 +4,19 @@ import NavbarComponent from './../NavbarComponent';
 import LogoHeaderComponent from './../catalogpage/LogoHeaderComponent';
 import ProductFormComponent from './ProductFormComponent';
 
-export default function AdminPage({ clothingItems, onSubmit, onDelete }) {
-  return (
+export default function AdminPage({
+  clothingItems,
+  onSubmit,
+  onDelete,
+  authenticatedUser,
+  logout = () => {}
+}) {
+  return authenticatedUser ? (
     <AdminPageLayout>
-      <NavbarComponent />
+      <NavbarComponent
+        onLogout={logout}
+        authenticatedUser={authenticatedUser}
+      />
       <LogoHeaderComponent />
       <ProductFormComponent
         onSubmit={onSubmit}
@@ -15,5 +24,7 @@ export default function AdminPage({ clothingItems, onSubmit, onDelete }) {
         clothingItems={clothingItems}
       />
     </AdminPageLayout>
+  ) : (
+    <div>UNAUTHORIZED ACCESS</div>
   );
 }
