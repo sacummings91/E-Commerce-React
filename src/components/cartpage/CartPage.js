@@ -5,10 +5,17 @@ import LogoHeaderComponent from '../catalogpage/LogoHeaderComponent';
 import ProductTableComponent from './ProductTableComponent';
 import PriceTableComponent from './PriceTableComponent';
 
-export default function CartPage({ cartItems }) {
+export default function CartPage({
+  cartItems,
+  authenticatedUser,
+  logout = () => {}
+}) {
   return (
     <CartPageLayout>
-      <NavbarComponent />
+      <NavbarComponent
+        onLogout={logout}
+        authenticatedUser={authenticatedUser}
+      />
       <LogoHeaderComponent />
       <div className="full-table">
         <ProductTableComponent items={cartItems} />

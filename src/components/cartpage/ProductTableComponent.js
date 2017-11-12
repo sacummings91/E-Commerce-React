@@ -13,23 +13,21 @@ export default function ProductTableComponent({ items }) {
           </Table.Row>
         </Table.Header>
 
-        <Table.Body>
-          {items.map((item, index) =>
-            <Table.Row key={index}>
-              <Table.Cell>
-                <Image src={item.imageUrl} shape="rounded" size="tiny" />
-              </Table.Cell>
-              <Table.Cell>
-                <Header as="h3">
-                  {item.name}
-                </Header>
-              </Table.Cell>
-              <Table.Cell textAlign="right">
-                ${item.price}
-              </Table.Cell>
-            </Table.Row>
-          )}
-        </Table.Body>
+        {!items ? null : (
+          <Table.Body>
+            {items.map((item, index) => (
+              <Table.Row key={index}>
+                <Table.Cell>
+                  <Image src={item.imageUrl} shape="rounded" size="tiny" />
+                </Table.Cell>
+                <Table.Cell>
+                  <Header as="h3">{item.name}</Header>
+                </Table.Cell>
+                <Table.Cell textAlign="right">${item.price}</Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        )}
       </Table>
     </div>
   );

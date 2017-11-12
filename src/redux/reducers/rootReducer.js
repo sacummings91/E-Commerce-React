@@ -1,17 +1,10 @@
-export default function rootReducer(
-  currentState = {
-    clothingItems: [],
-    clothingItem: {},
-    cartItems: [],
-    token: {},
-    authenticatedUserId: {},
-    usersById: {}
-  },
-  action
-) {
+export default function rootReducer(currentState, action) {
   switch (action.type) {
     case 'GET_PRODUCTS':
-      return { ...currentState, clothingItems: action.products };
+      return {
+        ...currentState,
+        clothingItems: action.products
+      };
     case 'GET_PRODUCT':
       return { ...currentState, clothingItem: action.product };
     case 'ADD_ITEM':
@@ -40,7 +33,6 @@ export default function rootReducer(
         )
       };
     case 'CREATE_USER':
-      console.log(action.user);
       return {
         ...currentState,
         usersById: {
@@ -68,7 +60,8 @@ export default function rootReducer(
         usersById: {
           ...currentState.usersById,
           [currentState.authenticatedUserId]: undefined
-        }
+        },
+        cartItems: undefined
       };
     default:
       return currentState;

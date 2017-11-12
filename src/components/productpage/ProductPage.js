@@ -4,10 +4,18 @@ import NavbarComponent from './../NavbarComponent';
 import LogoHeaderComponent from '../catalogpage/LogoHeaderComponent';
 import IndividualItemComponent from './IndividualItemComponent';
 
-export default function ProductPage({ clothingItem, addToCart }) {
+export default function ProductPage({
+  clothingItem,
+  addToCart,
+  authenticatedUser,
+  logout = () => {}
+}) {
   return (
     <ProductPageLayout>
-      <NavbarComponent />
+      <NavbarComponent
+        onLogout={logout}
+        authenticatedUser={authenticatedUser}
+      />
       <LogoHeaderComponent />
       <IndividualItemComponent item={clothingItem} addToCart={addToCart} />
     </ProductPageLayout>

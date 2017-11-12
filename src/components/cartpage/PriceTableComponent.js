@@ -24,9 +24,7 @@ export default function PriceTableComponent({ items }) {
               <Header as="h3">Subtotal:</Header>
             </Table.Cell>
             <Table.Cell textAlign="right">
-              <Header as="h3">
-                ${Number(subtotal).toFixed(2)}
-              </Header>
+              <Header as="h3">${Number(subtotal).toFixed(2)}</Header>
             </Table.Cell>
           </Table.Row>
           <Table.Row>
@@ -34,9 +32,7 @@ export default function PriceTableComponent({ items }) {
               <Header as="h3">Tax:</Header>
             </Table.Cell>
             <Table.Cell textAlign="right">
-              <Header as="h3">
-                ${Number(tax).toFixed(2)}
-              </Header>
+              <Header as="h3">${Number(tax).toFixed(2)}</Header>
             </Table.Cell>
           </Table.Row>
           <Table.Row>
@@ -44,9 +40,7 @@ export default function PriceTableComponent({ items }) {
               <Header as="h2">Total:</Header>
             </Table.Cell>
             <Table.Cell textAlign="right">
-              <Header as="h2">
-                ${total.toFixed(2)}
-              </Header>
+              <Header as="h2">${total.toFixed(2)}</Header>
             </Table.Cell>
           </Table.Row>
         </Table.Body>

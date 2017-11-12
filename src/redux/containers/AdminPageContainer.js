@@ -15,6 +15,7 @@ function mapStateToProps(state, ownProps) {
   return {
     clothingItems: state.clothingItems,
     authenticatedUser: selectAuthenticatedUser(state)
+    // adminUser: state.usersbyId.state.authenticatedUserId.role
   };
 }
 

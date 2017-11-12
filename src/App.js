@@ -14,8 +14,15 @@ import LoginPageContainer from './redux/containers/LoginPageContainer';
 
 function getInitialState(authentication) {
   return isEmpty(authentication)
-    ? {}
+    ? {
+        clothingItems: [],
+        clothingItem: {},
+        cartItems: []
+      }
     : {
+        clothingItems: [],
+        clothingItem: {},
+        cartItems: [],
         token: authentication.token,
         authenticatedUserId: authentication.user.id,
         usersById: {

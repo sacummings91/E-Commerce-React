@@ -7,7 +7,7 @@ export default function IndividualItemComponent({ item, addToCart }) {
     event.preventDefault();
     addToCart(item);
   }
-  return (
+  return !item ? null : (
     <div className="IndividualItemComponent">
       <div>
         <Image id="ItemImage" src={item.imageUrl} bordered size="medium" />

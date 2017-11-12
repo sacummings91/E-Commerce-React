@@ -4,22 +4,21 @@ import { connect } from 'react-redux';
 import ProductPage from '../../components/productpage/ProductPage';
 
 import getProductProcess from '../thunks/getProductProcess';
+import LogoutProcess from '../thunks/logoutProcess';
+import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state, ownProps) {
-  // console.log('ownProps', ownProps);
-  // console.log('state', state);
-  // const { productsById } = state;
-  // const { productId } = ownProps.match.params;
-  // const product = productsById[productId] || null;
   return {
-    clothingItem: state.clothingItem
+    clothingItem: state.clothingItem,
+    authenticatedUser: selectAuthenticatedUser(state)
   };
 }
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onDidMount: productId => dispatch(getProductProcess(productId)),
-    addToCart: item => dispatch({ type: 'ADD_ITEM', item })
+    addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
+    logout: () => dispatch(LogoutProcess.create())
   };
 }
 
