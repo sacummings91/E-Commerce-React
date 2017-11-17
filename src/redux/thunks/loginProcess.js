@@ -22,9 +22,8 @@ export default {
         dispatch({ type: 'LOGIN', token, user });
         return { token, user };
       } catch (error) {
-        console.error(error);
-
         localStorage.removeItem('token');
+        throw error;
       }
     };
   }

@@ -6,6 +6,10 @@ export default class LoginForm extends Component {
     onSubmit: () => {}
   };
 
+  state = {
+    invalidCredentials: false
+  };
+
   render() {
     return (
       <Segment inverted>
@@ -23,6 +27,11 @@ export default class LoginForm extends Component {
               name="password"
             />
           </Form.Group>
+          {this.state.invalidCredentials ? (
+            <div className="invalid-credentials">
+              Invalid Username or Password
+            </div>
+          ) : null}
           <Form.Button>Log In</Form.Button>
         </Form>
       </Segment>
@@ -32,9 +41,20 @@ export default class LoginForm extends Component {
   _handleSubmit = event => {
     event.preventDefault();
     const { username, password } = event.target;
-    this.props.onSubmit({
-      username: (username.value || '').trim(),
-      password: password.value || ''
-    });
+    this.props
+      .onSubmit({
+        username: (username.value || '').trim(),
+        password: password.value || ''
+      })
+      .catch(error => {
+        console.log(error.message);
+        if (
+          error.message.startsWith('AuthenticationService.ERROR_UNEXPECTED')
+        ) {
+          this.setState({
+            invalidCredentials: true
+          });
+        }
+      });
   };
 }
