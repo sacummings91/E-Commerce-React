@@ -32,11 +32,13 @@ export default class CreateAccountForm extends Component {
           </Form.Group>
           <Form.Group widths={2}>
             <Form.Input
+              type="password"
               label="Password"
               placeholder="Password"
               name="password"
             />
             <Form.Input
+              type="password"
               label="Repeat Password"
               placeholder="Repeat Password"
               name="repeatPassword"

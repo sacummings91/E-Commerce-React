@@ -38,7 +38,6 @@ export default class ProductFormComponent extends Component {
       });
     }
 
-    console.log(this.state, 'product form component');
     return (
       <div>
         <div className="admin-selector">

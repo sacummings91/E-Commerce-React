@@ -15,7 +15,6 @@ function mapStateToProps(state, ownProps) {
   return {
     clothingItems: state.clothingItems,
     authenticatedUser: selectAuthenticatedUser(state)
-    // adminUser: state.usersbyId.state.authenticatedUserId.role
   };
 }
 
@@ -27,7 +26,7 @@ function mapDispatchToProps(dispatch, ownProps) {
         ? dispatch(updateProductProcess(id, changes))
         : dispatch(createProductProcess(changes)),
     onDelete: ({ id }) => dispatch(deleteProductProcess(id)),
-    logout: () => dispatch(LogoutProcess.create())
+    logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
 

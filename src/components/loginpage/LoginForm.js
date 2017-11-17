@@ -17,6 +17,7 @@ export default class LoginForm extends Component {
               name="username"
             />
             <Form.Input
+              type="password"
               label="Password"
               placeholder="Password"
               name="password"
