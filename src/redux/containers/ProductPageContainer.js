@@ -10,6 +10,7 @@ import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 function mapStateToProps(state, ownProps) {
   return {
     clothingItem: state.clothingItem,
+    favorite: state.favorite,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }
@@ -18,7 +19,8 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onDidMount: productId => dispatch(getProductProcess(productId)),
     addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
-    logout: () => dispatch(LogoutProcess.create())
+    addToFavorites: favorite => dispatch({ type: 'ADD_FAVORITE', favorite }),
+    logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
 

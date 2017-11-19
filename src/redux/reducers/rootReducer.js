@@ -5,12 +5,22 @@ export default function rootReducer(currentState, action) {
         ...currentState,
         clothingItems: action.products
       };
+    case 'GET_FAVORITES':
+      return {
+        ...currentState,
+        favorites: action.favorites
+      };
     case 'GET_PRODUCT':
       return { ...currentState, clothingItem: action.product };
     case 'ADD_ITEM':
       return {
         ...currentState,
         cartItems: [...currentState.cartItems, action.item]
+      };
+    case 'ADD_FAVORITE':
+      return {
+        ...currentState,
+        userFavorites: [...currentState.userFavorites, action.favorite]
       };
     case 'CREATE_PRODUCT':
       return {

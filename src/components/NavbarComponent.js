@@ -29,6 +29,13 @@ export default class NavbarComponent extends Component {
               </NavLink>
             </Menu.Item>
           )}
+          {this.props.authenticatedUser ? (
+            <Menu.Item>
+              <NavLink exact to="/profile">
+                Profile
+              </NavLink>
+            </Menu.Item>
+          ) : null}
           {this.props.authenticatedUser ? null : (
             <Menu.Item link={false}>
               <NavLink exact to="/signup">

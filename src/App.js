@@ -11,6 +11,7 @@ import CartPageContainer from './redux/containers/CartPageContainer';
 import AdminPageContainer from './redux/containers/AdminPageContainer';
 import CreateAccountPageContainer from './redux/containers/CreateAccountPageContainer';
 import LoginPageContainer from './redux/containers/LoginPageContainer';
+import ProfilePageContainer from './redux/containers/ProfilePageContainer';
 
 function getInitialState(authentication) {
   return isEmpty(authentication)
@@ -23,6 +24,7 @@ function getInitialState(authentication) {
         clothingItems: [],
         clothingItem: {},
         cartItems: [],
+        userFavorites: [],
         token: authentication.token,
         authenticatedUserId: authentication.user.id,
         usersById: {
@@ -53,6 +55,7 @@ export default class App extends Component {
               />
               <Route exact path="/cart" component={CartPageContainer} />
               <Route exact path="/admin" component={AdminPageContainer} />
+              <Route exact path="/profile" component={ProfilePageContainer} />
             </Switch>
           </Router>
         </Provider>

@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getProductsProcess()),
     addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
-    logout: () => dispatch(LogoutProcess.create())
+    logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
 

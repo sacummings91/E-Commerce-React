@@ -1,12 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Image, Header, Button } from 'semantic-ui-react';
+import { Image, Header, Button, Icon } from 'semantic-ui-react';
 
-export default function IndividualItemComponent({ item, addToCart }) {
+export default function IndividualItemComponent({
+  item,
+  favorite,
+  addToCart,
+  addToFavorites
+}) {
   function onClick(event) {
     event.preventDefault();
     addToCart(item);
   }
+
+  function onFavorite(event) {
+    event.preventDefault();
+    addToFavorites(favorite);
+  }
+
   return !item ? null : (
     <div className="IndividualItemComponent">
       <div>
@@ -17,11 +28,17 @@ export default function IndividualItemComponent({ item, addToCart }) {
         <p className="overflow-text">{item.description}</p>
         <Header as="h1">${item.price}</Header>
         <Header as="h2">SKU#: {item.id}</Header>
-        <Button color="black" onClick={onClick}>
-          <NavLink className="add-to-cart" exact to="/cart">
-            Add To Cart
-          </NavLink>
-        </Button>
+        <div>
+          <Button color="black" onClick={onClick}>
+            <NavLink className="add-to-cart" exact to="/cart">
+              Add To Cart
+            </NavLink>
+          </Button>
+          <Button color="black" onClick={onFavorite}>
+            Favorite
+          </Button>
+          <Icon inverted size="big" color="red" name="heart" />
+        </div>
       </div>
     </div>
   );

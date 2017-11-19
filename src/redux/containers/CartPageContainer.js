@@ -13,7 +13,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    logout: () => dispatch(LogoutProcess.create())
+    logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
 
