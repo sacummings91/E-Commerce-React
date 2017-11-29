@@ -18,6 +18,7 @@ export default function rootReducer(currentState, action) {
         cartItems: [...currentState.cartItems, action.item]
       };
     case 'ADD_FAVORITE':
+      console.log(currentState, action, '<<<<<<');
       return {
         ...currentState,
         userFavorites: [...currentState.userFavorites, action.favorite]

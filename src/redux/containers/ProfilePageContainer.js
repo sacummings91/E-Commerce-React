@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ProfilePage from '../../components/profilepage/ProfilePage';
 import LogoutProcess from '../thunks/logoutProcess';
-import getFavoritesProcess from '../thunks/getFavoritesProcess';
+import getOrdersProcess from '../thunks/getOrdersProcess';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state) {
@@ -14,7 +14,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onMount: () => dispatch(getFavoritesProcess()),
+    onMount: () => dispatch(getOrdersProcess()),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }

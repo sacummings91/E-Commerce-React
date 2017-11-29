@@ -11,7 +11,7 @@ export default function AdminPage({
   authenticatedUser,
   logout = () => {}
 }) {
-  return authenticatedUser.role === 'ROLE_ADMIN' ? (
+  return authenticatedUser && authenticatedUser.role === 'ROLE_ADMIN' ? (
     <AdminPageLayout>
       <NavbarComponent
         onLogout={logout}
@@ -25,6 +25,9 @@ export default function AdminPage({
       />
     </AdminPageLayout>
   ) : (
-    <div>UNAUTHORIZED ACCESS</div>
+    <div>
+      <NavbarComponent />
+      <div>UNAUTHORIZED ACCESS</div>
+    </div>
   );
 }

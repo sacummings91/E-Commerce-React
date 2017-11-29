@@ -6,7 +6,8 @@ export default function IndividualItemComponent({
   item,
   favorite,
   addToCart,
-  addToFavorites
+  addToFavorites,
+  authenticatedUser
 }) {
   function onClick(event) {
     event.preventDefault();
@@ -15,7 +16,8 @@ export default function IndividualItemComponent({
 
   function onFavorite(event) {
     event.preventDefault();
-    addToFavorites(favorite);
+    console.log(item, 'item');
+    addToFavorites(item);
   }
 
   return !item ? null : (
@@ -26,18 +28,34 @@ export default function IndividualItemComponent({
       <div className="ItemInfo">
         <Header as="h1">{item.name}</Header>
         <p className="overflow-text">{item.description}</p>
-        <Header as="h1">${item.price}</Header>
-        <Header as="h2">SKU#: {item.id}</Header>
+        <div style={{ marginBottom: '50px', marginTop: '25px' }}>
+          <Header as="h1">${item.price}</Header>
+          <Header as="h1">SKU#: {item.id}</Header>
+        </div>
         <div>
-          <Button color="black" onClick={onClick}>
+          <Button
+            style={{
+              margin: '0 10px 0 10px',
+              padding: '12.5px 40px 12.5px 40px'
+            }}
+            color="black"
+            onClick={onClick}>
             <NavLink className="add-to-cart" exact to="/cart">
               Add To Cart
             </NavLink>
           </Button>
-          <Button color="black" onClick={onFavorite}>
-            Favorite
-          </Button>
-          <Icon inverted size="big" color="red" name="heart" />
+          {authenticatedUser ? (
+            <Button color="black" onClick={onFavorite}>
+              Favorite
+              <Icon
+                style={{ marginLeft: '20px' }}
+                inverted
+                size="large"
+                color="red"
+                name="heart"
+              />
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>

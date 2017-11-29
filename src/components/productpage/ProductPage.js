@@ -24,6 +24,7 @@ export default function ProductPage({
         favorite={favorite}
         addToCart={addToCart}
         addToFavorites={addToFavorites}
+        authenticatedUser={authenticatedUser}
       />
     </ProductPageLayout>
   );

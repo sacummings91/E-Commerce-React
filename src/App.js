@@ -24,7 +24,7 @@ function getInitialState(authentication) {
         clothingItems: [],
         clothingItem: {},
         cartItems: [],
-        userFavorites: [],
+        userOrders: [],
         token: authentication.token,
         authenticatedUserId: authentication.user.id,
         usersById: {
