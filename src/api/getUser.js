@@ -8,7 +8,6 @@ export default async function getUser(id, { token }) {
       headers
     });
     const body = await response.json();
-    console.log(body, '<<<<< BODY');
     if (response.status !== 200) throw new Error(body.message);
     return body;
   } catch (error) {

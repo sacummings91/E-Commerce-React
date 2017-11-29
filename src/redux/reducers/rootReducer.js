@@ -8,7 +8,7 @@ export default function rootReducer(currentState, action) {
     case 'GET_ORDERS':
       return {
         ...currentState,
-        favorites: action.orders
+        userOrders: action.orders
       };
     case 'GET_PRODUCT':
       return { ...currentState, clothingItem: action.product };
