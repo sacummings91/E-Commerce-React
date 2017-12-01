@@ -1,7 +1,7 @@
 import env from '../env';
 
-export default function deleteProduct(Id) {
-  return fetch(`${env.API_BASE_URL}/items/${Id}`, {
+export default function deleteFavorite(id) {
+  return fetch(`${env.API_BASE_URL}/favorites/${id}`, {
     method: 'DELETE'
   })
     .then(response => response.json())

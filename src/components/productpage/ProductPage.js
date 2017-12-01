@@ -6,8 +6,8 @@ import IndividualItemComponent from './IndividualItemComponent';
 
 export default function ProductPage({
   clothingItem,
-  addToCart,
-  addToFavorites,
+  onAddToCart,
+  onFavorite,
   authenticatedUser,
   logout = () => {}
 }) {
@@ -20,8 +20,8 @@ export default function ProductPage({
       <LogoHeaderComponent />
       <IndividualItemComponent
         item={clothingItem}
-        addToCart={addToCart}
-        addToFavorites={addToFavorites}
+        onAddToCart={onAddToCart}
+        onFavorite={onFavorite}
         authenticatedUser={authenticatedUser}
       />
     </ProductPageLayout>
