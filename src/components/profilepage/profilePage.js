@@ -13,7 +13,10 @@ export default class ProfilePage extends Component {
           onLogout={this.props.logout}
           authenticatedUser={this.props.authenticatedUser}
         />
-        <ProfileInfo authenticatedUser={this.props.authenticatedUser} />
+        <ProfileInfo
+          userOrders={this.props.userOrders}
+          authenticatedUser={this.props.authenticatedUser}
+        />
       </div>
     ) : (
       <div>

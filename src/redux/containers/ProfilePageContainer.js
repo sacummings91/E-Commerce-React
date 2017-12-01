@@ -7,8 +7,8 @@ import getOrdersProcess from '../thunks/getOrdersProcess';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state) {
-  console.log(state, '<<<< STATE');
   return {
+    clothingItems: state.clothingItems,
     userOrders: state.userOrders,
     authenticatedUser: selectAuthenticatedUser(state)
   };

@@ -4,20 +4,18 @@ import { Image, Header, Button, Icon } from 'semantic-ui-react';
 
 export default function IndividualItemComponent({
   item,
-  favorite,
   addToCart,
   addToFavorites,
   authenticatedUser
 }) {
-  function onClick(event) {
+  function onAddToCart(event) {
     event.preventDefault();
     addToCart(item);
   }
 
   function onFavorite(event) {
     event.preventDefault();
-    console.log(item, 'item');
-    addToFavorites(item);
+    addToFavorites(authenticatedUser.id, item);
   }
 
   return !item ? null : (
@@ -39,7 +37,7 @@ export default function IndividualItemComponent({
               padding: '12.5px 40px 12.5px 40px'
             }}
             color="black"
-            onClick={onClick}>
+            onClick={onAddToCart}>
             <NavLink className="add-to-cart" exact to="/cart">
               Add To Cart
             </NavLink>

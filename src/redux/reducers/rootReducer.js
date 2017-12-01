@@ -18,10 +18,12 @@ export default function rootReducer(currentState, action) {
         cartItems: [...currentState.cartItems, action.item]
       };
     case 'ADD_FAVORITE':
-      console.log(currentState, action, '<<<<<<');
+      let user = Object.assign({}, currentState.usersById);
+      console.log(action.item, '<<<<< ACTION ITEM');
+      user[currentState.authenticatedUserId].favorites.push(action.favorite);
       return {
         ...currentState,
-        userFavorites: [...currentState.userFavorites, action.favorite]
+        usersById: user
       };
     case 'CREATE_PRODUCT':
       return {

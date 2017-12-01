@@ -5,12 +5,13 @@ import ProductPage from '../../components/productpage/ProductPage';
 
 import getProductProcess from '../thunks/getProductProcess';
 import LogoutProcess from '../thunks/logoutProcess';
+import createFavoriteProcess from '../thunks/createFavoriteProcess';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state, ownProps) {
+  console.log(state, '<<<<< STATE');
   return {
     clothingItem: state.clothingItem,
-    favorite: state.favorite,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }
@@ -19,7 +20,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onDidMount: productId => dispatch(getProductProcess(productId)),
     addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
-    addToFavorites: favorite => dispatch({ type: 'ADD_FAVORITE', favorite }),
+    addToFavorites: (id, item) => dispatch(createFavoriteProcess(id, item.id)),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
