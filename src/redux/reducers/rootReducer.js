@@ -1,5 +1,6 @@
 export default function rootReducer(currentState, action) {
   let user = Object.assign({}, currentState.usersById);
+
   switch (action.type) {
     case 'GET_PRODUCTS':
       return {
@@ -19,15 +20,23 @@ export default function rootReducer(currentState, action) {
         cartItems: [...currentState.cartItems, action.item]
       };
     case 'ADD_FAVORITE':
+      user[currentState.authenticatedUserId].favoriteItems.push(
+        action.favoriteItem
+      );
+
       user[currentState.authenticatedUserId].favorites.push(action.favorite);
       return {
         ...currentState,
         usersById: user
       };
     case 'DELETE_FAVORITE':
-      user[currentState.authenticatedUserId].favorites.filter(
-        item => item.id !== action.favId
-      );
+      user[currentState.authenticatedUserId].favorites = user[
+        currentState.authenticatedUserId
+      ].favorites.filter(item => item.id !== action.favorite.id);
+
+      user[currentState.authenticatedUserId].favoriteItems = user[
+        currentState.authenticatedUserId
+      ].favoriteItems.filter(item => item.id !== action.favorite.itemId);
       return {
         ...currentState,
         usersById: user

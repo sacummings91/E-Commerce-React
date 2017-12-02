@@ -48,13 +48,15 @@ export default class IndividualItemComponent extends Component {
             {this.props.authenticatedUser ? (
               <Button color="black" onClick={this._favoriteItemClick}>
                 Favorite
-                <Icon
-                  style={{ marginLeft: '20px' }}
-                  inverted
-                  size="large"
-                  color="red"
-                  name="heart"
-                />
+                {this.props.authenticatedUser.favorites ? (
+                  <Icon
+                    style={{ marginLeft: '20px' }}
+                    inverted
+                    size="large"
+                    color="red"
+                    name="heart"
+                  />
+                ) : null}
               </Button>
             ) : null}
           </div>
@@ -76,11 +78,7 @@ export default class IndividualItemComponent extends Component {
       return this.props.item.id === favorite.itemId;
     });
     favorite
-      ? onFavorite(
-          this.props.authenticatedUser.id,
-          this.props.item,
-          favorite.id
-        )
+      ? onFavorite(this.props.authenticatedUser.id, this.props.item, favorite)
       : onFavorite(this.props.authenticatedUser.id, this.props.item, null);
   };
 }

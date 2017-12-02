@@ -20,10 +20,10 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     onDidMount: productId => dispatch(getProductProcess(productId)),
     onAddToCart: item => dispatch({ type: 'ADD_ITEM', item }),
-    onFavorite: (id, item, favId) =>
-      favId
-        ? dispatch(deleteFavoriteProcess(favId))
-        : dispatch(createFavoriteProcess(id, item.id)),
+    onFavorite: (userId, item, favorite) =>
+      favorite
+        ? dispatch(deleteFavoriteProcess(favorite))
+        : dispatch(createFavoriteProcess(userId, item.id)),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }
