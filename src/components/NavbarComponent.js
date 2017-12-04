@@ -44,6 +44,11 @@ export default class NavbarComponent extends Component {
             </Menu.Item>
           )}
           <Menu.Menu position="right">
+            {this.props.authenticatedUser ? (
+              <Menu.Item link={false}>
+                Logged In As: {this.props.authenticatedUser.username}
+              </Menu.Item>
+            ) : null}
             <Menu.Item link={false}>
               <NavLink exact to="/cart">
                 <i aria-hidden="true" className="cart icon" />
