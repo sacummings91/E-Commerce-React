@@ -32,6 +32,7 @@ export default class CreateAccountForm extends Component {
               />
               <Form.Input
                 required
+                type="email"
                 label="E-mail Address"
                 placeholder="E-mail Address"
                 name="email"
