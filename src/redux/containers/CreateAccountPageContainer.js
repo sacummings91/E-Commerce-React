@@ -15,7 +15,7 @@ function mapDispatchToProps(dispatch, ownProps) {
   return {
     async onSubmit(attributes) {
       await dispatch(CreateUserProcess.create(attributes));
-      ownProps.history.push('/');
+      ownProps.history.push('/login');
     }
   };
 }
