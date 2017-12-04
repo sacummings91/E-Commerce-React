@@ -1,7 +1,6 @@
 import React from 'react';
 import ProductPageLayout from './ProductPageLayout';
 import NavbarComponent from './../NavbarComponent';
-import LogoHeaderComponent from '../catalogpage/LogoHeaderComponent';
 import IndividualItemComponent from './IndividualItemComponent';
 
 export default function ProductPage({
@@ -17,7 +16,6 @@ export default function ProductPage({
         onLogout={logout}
         authenticatedUser={authenticatedUser}
       />
-      <LogoHeaderComponent />
       <IndividualItemComponent
         item={clothingItem}
         onAddToCart={onAddToCart}

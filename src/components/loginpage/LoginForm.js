@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Segment } from 'semantic-ui-react';
+import { Form, Segment, Grid } from 'semantic-ui-react';
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -12,29 +12,38 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <Segment inverted style={{ borderRadius: 0 }}>
-        <Form inverted onSubmit={this._handleSubmit}>
-          <Form.Group widths="equal">
-            <Form.Input
-              label="Username"
-              placeholder="Username"
-              name="username"
-            />
-            <Form.Input
-              type="password"
-              label="Password"
-              placeholder="Password"
-              name="password"
-            />
-          </Form.Group>
-          {this.state.invalidCredentials ? (
-            <div className="invalid-credentials">
-              Invalid Username or Password
-            </div>
-          ) : null}
-          <Form.Button>Log In</Form.Button>
-        </Form>
-      </Segment>
+      <Grid
+        textAlign="center"
+        style={{ height: '100%' }}
+        verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Form inverted onSubmit={this._handleSubmit}>
+            <Segment inverted style={{ borderRadius: 0, marginTop: '15px' }}>
+              <Form.Input
+                required
+                label="Username"
+                placeholder="Username"
+                name="username"
+              />
+              <Form.Input
+                required
+                type="password"
+                label="Password"
+                placeholder="Password"
+                name="password"
+              />
+              {this.state.invalidCredentials ? (
+                <div className="invalid-credentials">
+                  Invalid Username or Password
+                </div>
+              ) : null}
+              <Form.Button color="teal" fluid size="large">
+                Log In
+              </Form.Button>
+            </Segment>
+          </Form>
+        </Grid.Column>
+      </Grid>
     );
   }
 

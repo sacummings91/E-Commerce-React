@@ -1,7 +1,6 @@
 import React from 'react';
 import AdminPageLayout from './AdminPageLayout';
 import NavbarComponent from './../NavbarComponent';
-import LogoHeaderComponent from './../catalogpage/LogoHeaderComponent';
 import ProductFormComponent from './ProductFormComponent';
 
 export default function AdminPage({
@@ -17,7 +16,6 @@ export default function AdminPage({
         onLogout={logout}
         authenticatedUser={authenticatedUser}
       />
-      <LogoHeaderComponent />
       <ProductFormComponent
         onSubmit={onSubmit}
         onDelete={onDelete}

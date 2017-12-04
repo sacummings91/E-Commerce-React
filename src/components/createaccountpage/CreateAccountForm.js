@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Segment } from 'semantic-ui-react';
+import { Form, Segment, Grid } from 'semantic-ui-react';
 
 export default class CreateAccountForm extends Component {
   static defaultProps = {
@@ -8,52 +8,66 @@ export default class CreateAccountForm extends Component {
 
   render() {
     return (
-      <Segment inverted style={{ borderRadius: 0 }}>
-        <Form inverted onSubmit={this._handleSubmit}>
-          <Form.Group widths={3}>
-            <Form.Input
-              label="First name"
-              placeholder="First Name"
-              name="firstName"
-            />
-            <Form.Input
-              label="Last Name"
-              placeholder="Last Name"
-              name="lastName"
-            />
-          </Form.Group>
-          <Form.Group widths={3}>
-            <Form.Input label="Email" placeholder="Email" name="email" />
-            <Form.Input
-              label="Username"
-              placeholder="Username"
-              name="username"
-            />
-          </Form.Group>
-          <Form.Group widths={3}>
-            <Form.Input
-              type="password"
-              label="Password"
-              placeholder="Password"
-              name="password"
-            />
-            <Form.Input
-              type="password"
-              label="Repeat Password"
-              placeholder="Repeat Password"
-              name="repeatPassword"
-            />
-          </Form.Group>
-          <Form.Checkbox label="I agree to the Terms and Conditions" />
-          <Form.Button>Sign Up</Form.Button>
-        </Form>
-      </Segment>
+      <Grid
+        textAlign="center"
+        style={{ height: '100%' }}
+        verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Form inverted onSubmit={this._handleSubmit}>
+            <Segment
+              stacked
+              inverted
+              style={{ borderRadius: 0, marginTop: '15px' }}>
+              <Form.Input
+                required
+                label="First name"
+                placeholder="First Name"
+                name="firstName"
+              />
+              <Form.Input
+                required
+                label="Last Name"
+                placeholder="Last Name"
+                name="lastName"
+              />
+              <Form.Input
+                required
+                label="E-mail Address"
+                placeholder="E-mail Address"
+                name="email"
+              />
+              <Form.Input
+                required
+                label="Username"
+                placeholder="Username"
+                name="username"
+              />
+              <Form.Input
+                required
+                type="password"
+                label="Password"
+                placeholder="Password"
+                name="password"
+              />
+              <Form.Input
+                required
+                type="password"
+                label="Repeat Password"
+                placeholder="Repeat Password"
+                name="repeatPassword"
+              />
+              <Form.Button color="teal" fluid size="large">
+                Sign Up
+              </Form.Button>
+            </Segment>
+          </Form>
+        </Grid.Column>
+      </Grid>
     );
   }
 
   _handleSubmit = event => {
     event.preventDefault();
-    console.log(event.target);
     const {
       firstName,
       lastName,
