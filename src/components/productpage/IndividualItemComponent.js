@@ -15,7 +15,10 @@ export default class IndividualItemComponent extends Component {
   }
 
   render() {
-    console.log(this.props);
+    const favorite = this.props.authenticatedUser.favorites.find(favorite => {
+      return this.props.item.id === favorite.itemId;
+    });
+
     return !this.props.item ? null : (
       <div className="IndividualItemComponent">
         <div>
@@ -48,7 +51,7 @@ export default class IndividualItemComponent extends Component {
             {this.props.authenticatedUser ? (
               <Button color="black" onClick={this._favoriteItemClick}>
                 Favorite
-                {this.props.authenticatedUser.favorites ? (
+                {favorite ? (
                   <Icon
                     style={{ marginLeft: '20px' }}
                     inverted

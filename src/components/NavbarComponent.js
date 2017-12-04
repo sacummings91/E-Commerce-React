@@ -10,7 +10,7 @@ export default class NavbarComponent extends Component {
   render() {
     return (
       <div>
-        <Menu inverted>
+        <Menu inverted style={{ borderRadius: 0 }}>
           <Menu.Item>
             <NavLink exact to="/">
               Home

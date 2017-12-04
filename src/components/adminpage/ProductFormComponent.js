@@ -54,7 +54,7 @@ export default class ProductFormComponent extends Component {
             UPDATE PRODUCTS
           </Header>
         </div>
-        <Segment inverted>
+        <Segment inverted style={{ borderRadius: 0 }}>
           <Form inverted onSubmit={this._submitProductClick}>
             <ToastContainer
               position="top-right"

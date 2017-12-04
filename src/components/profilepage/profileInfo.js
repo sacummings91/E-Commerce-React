@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
+import { Header, Table } from 'semantic-ui-react';
 
 import ClothingItemComponent from '../ClothingItemComponent';
 
@@ -24,7 +24,7 @@ export default class ProfileInfo extends Component {
               Favorites
             </Header>
             <div className="ClothingItemsComponent">
-              {this.props.authenticatedUser.favorites.map(item => (
+              {this.props.authenticatedUser.favoriteItems.map(item => (
                 <ClothingItemComponent
                   key={item.id}
                   item={item}
@@ -36,6 +36,25 @@ export default class ProfileInfo extends Component {
           <Header className="orders" as="h2">
             Orders
           </Header>
+          <div>
+            <Table celled inverted>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Confirmation Number</Table.HeaderCell>
+                  <Table.HeaderCell>Date Ordered</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+              <Table.Body>
+                {this.props.userOrders.map(order => (
+                  <Table.Row key={order.id}>
+                    <Table.Cell>{order.confirmationNum}</Table.Cell>
+                    <Table.Cell>{order.dateCreated}</Table.Cell>
+                  </Table.Row>
+                ))}
+              </Table.Body>
+            </Table>
+          </div>
         </div>
       </div>
     );

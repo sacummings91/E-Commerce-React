@@ -20,6 +20,7 @@ export default function rootReducer(currentState, action) {
         cartItems: [...currentState.cartItems, action.item]
       };
     case 'ADD_FAVORITE':
+      // TODO: spread operators or new method for immutable changes
       user[currentState.authenticatedUserId].favoriteItems.push(
         action.favoriteItem
       );

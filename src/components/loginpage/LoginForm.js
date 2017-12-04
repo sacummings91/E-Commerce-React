@@ -12,7 +12,7 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <Segment inverted>
+      <Segment inverted style={{ borderRadius: 0 }}>
         <Form inverted onSubmit={this._handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input

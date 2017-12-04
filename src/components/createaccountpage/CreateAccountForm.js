@@ -8,9 +8,9 @@ export default class CreateAccountForm extends Component {
 
   render() {
     return (
-      <Segment inverted>
+      <Segment inverted style={{ borderRadius: 0 }}>
         <Form inverted onSubmit={this._handleSubmit}>
-          <Form.Group widths={2}>
+          <Form.Group widths={3}>
             <Form.Input
               label="First name"
               placeholder="First Name"
@@ -22,7 +22,7 @@ export default class CreateAccountForm extends Component {
               name="lastName"
             />
           </Form.Group>
-          <Form.Group widths={2}>
+          <Form.Group widths={3}>
             <Form.Input label="Email" placeholder="Email" name="email" />
             <Form.Input
               label="Username"
@@ -30,7 +30,7 @@ export default class CreateAccountForm extends Component {
               name="username"
             />
           </Form.Group>
-          <Form.Group widths={2}>
+          <Form.Group widths={3}>
             <Form.Input
               type="password"
               label="Password"
