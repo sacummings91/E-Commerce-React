@@ -4,7 +4,6 @@ import { Card, Image, Header, Button } from 'semantic-ui-react';
 
 export default function ClothingItemComponent({ item, addToCart }) {
   function onClick(event) {
-    event.preventDefault();
     addToCart(item);
   }
 
@@ -22,12 +21,13 @@ export default function ClothingItemComponent({ item, addToCart }) {
             {item.price ? `$${item.price}` : 'N/A'}
           </Header>
           <Button
+            as={NavLink}
+            exact
+            to="/cart"
             className="add-to-cart-button"
             color="black"
             onClick={onClick}>
-            <NavLink className="add-to-cart" exact to="/cart">
-              Add To Cart
-            </NavLink>
+            Add To Cart
           </Button>
         </Card.Content>
       </Card>

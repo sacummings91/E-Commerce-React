@@ -15,40 +15,37 @@ export default class IndividualItemComponent extends Component {
   }
 
   render() {
-    const favorite = this.props.authenticatedUser.favorites.find(favorite => {
-      return this.props.item.id === favorite.itemId;
+    const { item, authenticatedUser } = this.props;
+    const favorite = authenticatedUser.favorites.find(favorite => {
+      return item.id === favorite.itemId;
     });
 
-    return !this.props.item ? null : (
+    return !item ? null : (
       <div className="IndividualItemComponent">
         <div>
-          <Image
-            id="ItemImage"
-            src={this.props.item.imageUrl}
-            bordered
-            size="medium"
-          />
+          <Image id="ItemImage" src={item.imageUrl} bordered size="medium" />
         </div>
         <div className="ItemInfo">
-          <Header as="h1">{this.props.item.name}</Header>
-          <p className="overflow-text">{this.props.item.description}</p>
+          <Header as="h1">{item.name}</Header>
+          <p className="overflow-text">{item.description}</p>
           <div style={{ marginBottom: '50px', marginTop: '25px' }}>
-            <Header as="h1">${this.props.item.price}</Header>
-            <Header as="h1">SKU#: {this.props.item.id}</Header>
+            <Header as="h1">${item.price}</Header>
+            <Header as="h1">SKU#: {item.id}</Header>
           </div>
           <div>
             <Button
+              as={NavLink}
+              exact
+              to="/cart"
               style={{
                 margin: '0 10px 0 10px',
                 padding: '12.5px 40px 12.5px 40px'
               }}
               color="black"
               onClick={this._addToCartClick}>
-              <NavLink className="add-to-cart" exact to="/cart">
-                Add To Cart
-              </NavLink>
+              Add To Cart
             </Button>
-            {this.props.authenticatedUser ? (
+            {authenticatedUser ? (
               <Button color="black" onClick={this._favoriteItemClick}>
                 Favorite
                 {favorite ? (
@@ -69,19 +66,18 @@ export default class IndividualItemComponent extends Component {
   }
 
   _addToCartClick = event => {
-    event.preventDefault();
     const { onAddToCart } = this.props;
     onAddToCart(this.props.item);
   };
 
   _favoriteItemClick = event => {
     event.preventDefault();
-    const { onFavorite } = this.props;
-    const favorite = this.props.authenticatedUser.favorites.find(favorite => {
-      return this.props.item.id === favorite.itemId;
+    const { item, authenticatedUser, onFavorite } = this.props;
+    const favorite = authenticatedUser.favorites.find(favorite => {
+      return item.id === favorite.itemId;
     });
     favorite
-      ? onFavorite(this.props.authenticatedUser.id, this.props.item, favorite)
-      : onFavorite(this.props.authenticatedUser.id, this.props.item, null);
+      ? onFavorite(authenticatedUser.id, item, favorite)
+      : onFavorite(authenticatedUser.id, item, null);
   };
 }

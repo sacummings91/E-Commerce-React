@@ -20,7 +20,10 @@ export default function CatalogPage({
         authenticatedUser={authenticatedUser}
       />
       <LogoHeaderComponent />
-      <CategoriesComponent selectedCategory={selectedCategory} />
+      <CategoriesComponent
+        selectedCategory={selectedCategory}
+        authenticatedUser={authenticatedUser}
+      />
       <ClothingItemsComponent items={clothingItems} addToCart={addToCart} />
       <FooterComponent authenticatedUser={authenticatedUser} />
     </CatalogPageLayout>

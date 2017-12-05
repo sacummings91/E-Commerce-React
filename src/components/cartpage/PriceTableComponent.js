@@ -46,10 +46,8 @@ export default function PriceTableComponent({ items }) {
         </Table.Body>
       </Table>
       <div>
-        <Button color="black">
-          <NavLink className="continue-shopping" exact to="/">
-            Continue Shopping
-          </NavLink>
+        <Button color="black" as={NavLink} exact to="/">
+          Continue Shopping
         </Button>
         <Button color="black">Proceed To Checkout</Button>
       </div>

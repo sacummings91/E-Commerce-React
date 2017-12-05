@@ -11,14 +11,14 @@ function mapStateToProps(state, ownProps) {
   const queryString = ownProps.location.search || '';
   const queryParams = qs.parse(queryString.replace('?', ''));
   const category = queryParams.category;
-  const clothingItems = !state.clothingItems
-    ? (state.clothingItems = [])
-    : state.clothingItems.filter(
-        item => (category ? item.category === category : item.isFeatured)
-      );
+  const selectedCategory = state.clothingItems.filter(
+    item => (category ? item.category === category : item.isFeatured)
+  );
+  const favoriteItems =
+    state.usersById[state.authenticatedUserId].favoriteItems;
 
   return {
-    clothingItems,
+    clothingItems: category === 'Favorites' ? favoriteItems : selectedCategory,
     selectedCategory: category,
     authenticatedUser: selectAuthenticatedUser(state)
   };
