@@ -14,6 +14,7 @@ function mapStateToProps(state, ownProps) {
   console.log(state);
   return {
     clothingItems: state.clothingItems,
+    cartItems: state.cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }

@@ -18,15 +18,15 @@ export default function ClothingItemComponent({ item, addToCart }) {
           alt={item.name}
           as={NavLink}
           exact
-          to="/"
+          to={`/products/${item.id}`}
         />
         <Card.Content>
-          <Header as="h3" textAlign="center">
+          <Header as="h4" className="itemName" textAlign="center">
             <NavLink exact to={`/products/${item.id}`}>
               {item.name || 'N/A'}
             </NavLink>
           </Header>
-          <Header as="h3" textAlign="center">
+          <Header as="h4" textAlign="center">
             {item.price ? `$${item.price.toFixed(2)}` : 'N/A'}
           </Header>
           <Button

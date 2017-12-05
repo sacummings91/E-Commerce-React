@@ -120,10 +120,6 @@ button.ui.grey.button {
   color: white;
 }
 
-img.ui.fluid.image {
-  max-height: 250px;
-}
-
 .invalid-credentials {
   text-align: center;
   color: red;

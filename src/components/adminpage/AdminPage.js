@@ -4,6 +4,7 @@ import NavbarComponent from './../NavbarComponent';
 import ProductFormComponent from './ProductFormComponent';
 
 export default function AdminPage({
+  cartItems,
   clothingItems,
   onSubmit,
   onDelete,
@@ -14,6 +15,7 @@ export default function AdminPage({
     <AdminPageLayout>
       <NavbarComponent
         onLogout={logout}
+        cartItems={cartItems}
         authenticatedUser={authenticatedUser}
       />
       <ProductFormComponent
