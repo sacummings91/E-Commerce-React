@@ -5,6 +5,7 @@ import IndividualItemComponent from './IndividualItemComponent';
 
 export default function ProductPage({
   clothingItem,
+  cartItems,
   onAddToCart,
   onFavorite,
   authenticatedUser,
@@ -13,6 +14,7 @@ export default function ProductPage({
   return (
     <ProductPageLayout>
       <NavbarComponent
+        cartItems={cartItems}
         onLogout={logout}
         authenticatedUser={authenticatedUser}
       />

@@ -53,7 +53,7 @@ h1.ui.header {
 }
 
 .ItemInfo {
-  margin-top: 45px;
+  margin-top: 75px;
   width: 40%;
 }
 
@@ -121,7 +121,7 @@ button.ui.grey.button {
 }
 
 img.ui.fluid.image {
-  max-height: 300px;
+  max-height: 250px;
 }
 
 .invalid-credentials {

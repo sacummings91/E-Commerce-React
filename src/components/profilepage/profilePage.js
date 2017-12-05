@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ProfileInfo from './ProfileInfo';
+import ProfileInfo from './profileInfo';
 import NavbarComponent from './../NavbarComponent';
 
 export default class ProfilePage extends Component {

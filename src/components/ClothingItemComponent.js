@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Card, Image, Header, Button } from 'semantic-ui-react';
 
 export default function ClothingItemComponent({ item, addToCart }) {
+  console.log(item);
   function onClick(event) {
     // event.preventDefault();
     addToCart(item);
@@ -10,16 +11,23 @@ export default function ClothingItemComponent({ item, addToCart }) {
 
   return (
     <div className="ClothingItemComponent">
-      <Card>
-        <Image fluid src={item.imageUrl} alt={item.name} />
+      <Card style={{ maxWidth: '220px' }}>
+        <Image
+          fluid
+          src={item.imageUrl}
+          alt={item.name}
+          as={NavLink}
+          exact
+          to="/"
+        />
         <Card.Content>
-          <Header as="h2" textAlign="center">
+          <Header as="h3" textAlign="center">
             <NavLink exact to={`/products/${item.id}`}>
               {item.name || 'N/A'}
             </NavLink>
           </Header>
           <Header as="h3" textAlign="center">
-            {item.price ? `$${item.price}` : 'N/A'}
+            {item.price ? `$${item.price.toFixed(2)}` : 'N/A'}
           </Header>
           <Button
             as={NavLink}

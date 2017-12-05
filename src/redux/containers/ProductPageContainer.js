@@ -12,6 +12,7 @@ import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 function mapStateToProps(state, ownProps) {
   return {
     clothingItem: state.clothingItem,
+    cartItems: state.cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }

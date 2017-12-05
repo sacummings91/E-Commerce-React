@@ -1,7 +1,7 @@
 import { lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 
-import ProfilePage from '../../components/profilepage/ProfilePage';
+import ProfilePage from '../../components/profilepage/profilePage';
 import LogoutProcess from '../thunks/logoutProcess';
 import getOrdersProcess from '../thunks/getOrdersProcess';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
