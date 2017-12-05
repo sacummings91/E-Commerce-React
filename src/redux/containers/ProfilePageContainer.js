@@ -8,6 +8,7 @@ import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state) {
   return {
+    cartItems: state.cartItems,
     clothingItems: state.clothingItems,
     userOrders: state.userOrders,
     authenticatedUser: selectAuthenticatedUser(state)

@@ -5,30 +5,30 @@ import ClothingItemComponent from '../ClothingItemComponent';
 
 export default class ProfileInfo extends Component {
   render() {
-    console.log(this.props);
+    const { authenticatedUser, addToCart, userOrders } = this.props;
     return (
       <div>
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
           <Header className="username" as="h1">
-            {this.props.authenticatedUser.username}
+            {authenticatedUser.username}
           </Header>
           <Header className="name" as="h4">
-            {this.props.authenticatedUser.firstName}
-            {this.props.authenticatedUser.lastName}
+            {authenticatedUser.firstName}
+            {authenticatedUser.lastName}
           </Header>
           <Header className="email" as="h4">
-            {this.props.authenticatedUser.email}
+            {authenticatedUser.email}
           </Header>
           <div>
             <Header className="favorites" as="h2">
               Favorites
             </Header>
             <div className="ClothingItemsComponent">
-              {this.props.authenticatedUser.favoriteItems.map(item => (
+              {authenticatedUser.favoriteItems.map(item => (
                 <ClothingItemComponent
                   key={item.id}
                   item={item}
-                  addToCart={this.props.addToCart}
+                  addToCart={addToCart}
                 />
               ))}
             </div>
@@ -46,7 +46,7 @@ export default class ProfileInfo extends Component {
               </Table.Header>
 
               <Table.Body>
-                {this.props.userOrders.map(order => (
+                {userOrders.map(order => (
                   <Table.Row key={order.id}>
                     <Table.Cell>{order.confirmationNum}</Table.Cell>
                     <Table.Cell>{order.dateCreated}</Table.Cell>

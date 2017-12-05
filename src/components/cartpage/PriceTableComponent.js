@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Table, Button, Header } from 'semantic-ui-react';
 
 export default function PriceTableComponent({ items }) {
+  items = items || [];
   let subtotal = 0;
   let tax = 0;
   let total = 0;

@@ -7,15 +7,17 @@ export default class ProfilePage extends Component {
   static defaultProps = {};
 
   render() {
-    return this.props.authenticatedUser ? (
+    const { authenticatedUser, logout, cartItems, userOrders } = this.props;
+    return authenticatedUser ? (
       <div className="ProfilePage">
         <NavbarComponent
-          onLogout={this.props.logout}
-          authenticatedUser={this.props.authenticatedUser}
+          onLogout={logout}
+          cartItems={cartItems}
+          authenticatedUser={authenticatedUser}
         />
         <ProfileInfo
-          userOrders={this.props.userOrders}
-          authenticatedUser={this.props.authenticatedUser}
+          userOrders={userOrders}
+          authenticatedUser={authenticatedUser}
         />
       </div>
     ) : (

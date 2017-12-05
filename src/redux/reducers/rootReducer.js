@@ -19,6 +19,13 @@ export default function rootReducer(currentState, action) {
         ...currentState,
         cartItems: [...currentState.cartItems, action.item]
       };
+    case 'REMOVE_ITEM':
+      return {
+        ...currentState,
+        cartItems: currentState.cartItems.filter(
+          (item, index) => index !== action.index
+        )
+      };
     case 'ADD_FAVORITE':
       // TODO: spread operators or new method for immutable changes
       user[currentState.authenticatedUserId].favoriteItems.push(

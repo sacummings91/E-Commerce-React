@@ -13,6 +13,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
+    removeFromCart: index => dispatch({ type: 'REMOVE_ITEM', index }),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }

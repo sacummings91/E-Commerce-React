@@ -10,12 +10,14 @@ export default function CatalogPage({
   clothingItems,
   selectedCategory,
   addToCart,
+  cartItems,
   authenticatedUser,
   logout = () => {}
 }) {
   return (
     <CatalogPageLayout>
       <NavbarComponent
+        cartItems={cartItems}
         onLogout={logout}
         authenticatedUser={authenticatedUser}
       />

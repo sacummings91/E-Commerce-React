@@ -8,6 +8,8 @@ export default class NavbarComponent extends Component {
   };
 
   render() {
+    const { authenticatedUser } = this.props;
+    console.log(this.props);
     return (
       <div>
         <Menu inverted style={{ borderRadius: 0 }}>
@@ -16,7 +18,7 @@ export default class NavbarComponent extends Component {
               Home
             </NavLink>
           </Menu.Item>
-          {this.props.authenticatedUser ? (
+          {authenticatedUser ? (
             <Menu.Item>
               <NavLink exact to="/" onClick={this._handleClickLogout}>
                 Logout
@@ -29,14 +31,14 @@ export default class NavbarComponent extends Component {
               </NavLink>
             </Menu.Item>
           )}
-          {this.props.authenticatedUser ? (
+          {authenticatedUser ? (
             <Menu.Item>
               <NavLink exact to="/profile">
                 Profile
               </NavLink>
             </Menu.Item>
           ) : null}
-          {this.props.authenticatedUser ? null : (
+          {authenticatedUser ? null : (
             <Menu.Item link={false}>
               <NavLink exact to="/signup">
                 Sign Up
@@ -44,15 +46,15 @@ export default class NavbarComponent extends Component {
             </Menu.Item>
           )}
           <Menu.Menu position="right">
-            {this.props.authenticatedUser ? (
+            {authenticatedUser ? (
               <Menu.Item link={false}>
-                Logged In As: {this.props.authenticatedUser.username}
+                Logged In As: {authenticatedUser.username}
               </Menu.Item>
             ) : null}
             <Menu.Item link={false}>
               <NavLink exact to="/cart">
                 <i aria-hidden="true" className="cart icon" />
-                Cart
+                Cart({this.props.cartItems.length})
               </NavLink>
             </Menu.Item>
           </Menu.Menu>

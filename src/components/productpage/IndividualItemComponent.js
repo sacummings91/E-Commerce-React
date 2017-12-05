@@ -66,8 +66,8 @@ export default class IndividualItemComponent extends Component {
   }
 
   _addToCartClick = event => {
-    const { onAddToCart } = this.props;
-    onAddToCart(this.props.item);
+    const { onAddToCart, item } = this.props;
+    onAddToCart(item);
   };
 
   _favoriteItemClick = event => {

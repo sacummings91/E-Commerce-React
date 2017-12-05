@@ -8,6 +8,7 @@ import getProductsProcess from '../thunks/getProductsProcess';
 import LogoutProcess from '../thunks/logoutProcess';
 
 function mapStateToProps(state, ownProps) {
+  const cartItems = state.cartItems;
   const queryString = ownProps.location.search || '';
   const queryParams = qs.parse(queryString.replace('?', ''));
   const category = queryParams.category;
@@ -15,11 +16,13 @@ function mapStateToProps(state, ownProps) {
     item => (category ? item.category === category : item.isFeatured)
   );
   const favoriteItems =
-    state.usersById[state.authenticatedUserId].favoriteItems;
+    state.usersById[state.authenticatedUserId].favoriteItems || [];
 
   return {
     clothingItems: category === 'Favorites' ? favoriteItems : selectedCategory,
+    // clothingItems: selectedCategory,
     selectedCategory: category,
+    cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }

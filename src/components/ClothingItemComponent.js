@@ -4,6 +4,7 @@ import { Card, Image, Header, Button } from 'semantic-ui-react';
 
 export default function ClothingItemComponent({ item, addToCart }) {
   function onClick(event) {
+    // event.preventDefault();
     addToCart(item);
   }
 
