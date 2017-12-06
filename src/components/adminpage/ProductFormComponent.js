@@ -120,6 +120,9 @@ export default class ProductFormComponent extends Component {
               <Form.Button className="submit-new-item" color="grey">
                 Submit Item
               </Form.Button>
+              <Form.Button onClick={this._clearFormClick}>
+                Clear Form
+              </Form.Button>
               <Form.Button
                 className="delete-item"
                 color="red"
@@ -203,6 +206,19 @@ export default class ProductFormComponent extends Component {
           imageUrl: ''
         }
       });
+    });
+  };
+
+  _clearFormClick = event => {
+    event.preventDefault();
+    this.setState({
+      formValues: {
+        name: '',
+        category: '',
+        description: '',
+        price: '',
+        imageUrl: ''
+      }
     });
   };
 }
