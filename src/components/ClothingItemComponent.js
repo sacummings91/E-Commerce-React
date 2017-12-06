@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Card, Image, Header, Button } from 'semantic-ui-react';
 
 export default function ClothingItemComponent({ item, addToCart }) {
-  console.log(item);
   function onClick(event) {
     // event.preventDefault();
     addToCart(item);

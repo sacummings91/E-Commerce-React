@@ -4,7 +4,6 @@ import NavbarComponent from './../NavbarComponent';
 import LogoHeaderComponent from './LogoHeaderComponent';
 import CategoriesComponent from './CategoriesComponent';
 import ClothingItemsComponent from './../ClothingItemsComponent';
-import FooterComponent from './../FooterComponent';
 
 export default function CatalogPage({
   clothingItems,
@@ -15,7 +14,7 @@ export default function CatalogPage({
   logout = () => {}
 }) {
   return (
-    <CatalogPageLayout>
+    <CatalogPageLayout className="catalogPageLayout">
       <NavbarComponent
         cartItems={cartItems}
         onLogout={logout}
@@ -27,7 +26,6 @@ export default function CatalogPage({
         authenticatedUser={authenticatedUser}
       />
       <ClothingItemsComponent items={clothingItems} addToCart={addToCart} />
-      <FooterComponent authenticatedUser={authenticatedUser} />
     </CatalogPageLayout>
   );
 }

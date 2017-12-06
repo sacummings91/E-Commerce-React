@@ -8,6 +8,7 @@ export default function CartPage({
   cartItems,
   authenticatedUser,
   removeFromCart = () => {},
+  confirmOrder = () => {},
   logout = () => {}
 }) {
   return (
@@ -22,7 +23,11 @@ export default function CartPage({
           items={cartItems}
           removeFromCart={removeFromCart}
         />
-        <PriceTableComponent items={cartItems} />
+        <PriceTableComponent
+          authenticatedUser={authenticatedUser}
+          items={cartItems}
+          confirmOrder={confirmOrder}
+        />
       </div>
     </CartPageLayout>
   );

@@ -37,7 +37,9 @@ export default function ProductTableComponent({ items, removeFromCart }) {
                 <Table.Cell>
                   <Header as="h3">{item.name}</Header>
                 </Table.Cell>
-                <Table.Cell textAlign="right">${item.price}</Table.Cell>
+                <Table.Cell textAlign="right">
+                  ${item.price.toFixed(2)}
+                </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>
