@@ -9,7 +9,6 @@ export default {
     return async (dispatch, getState) => {
       try {
         const { token } = await authenticate(credentials);
-
         localStorage.setItem('token', token);
 
         const { sub: userId } = decode(token);

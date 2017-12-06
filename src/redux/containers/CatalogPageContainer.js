@@ -5,6 +5,7 @@ import qs from 'qs';
 import CatalogPage from '../../components/catalogpage/CatalogPage';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 import getProductsProcess from '../thunks/getProductsProcess';
+import addToCartProcess from '../thunks/addToCartProcess';
 import LogoutProcess from '../thunks/logoutProcess';
 
 function mapStateToProps(state, ownProps) {
@@ -15,12 +16,12 @@ function mapStateToProps(state, ownProps) {
   const selectedCategory = state.clothingItems.filter(
     item => (category ? item.category === category : item.isFeatured)
   );
-  const favoriteItems =
-    state.usersById[state.authenticatedUserId].favoriteItems || [];
+  const favoriteItems = state.authenticatedUserId
+    ? state.usersById[state.authenticatedUserId].favoriteItems
+    : [];
 
   return {
     clothingItems: category === 'Favorites' ? favoriteItems : selectedCategory,
-    // clothingItems: selectedCategory,
     selectedCategory: category,
     cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
@@ -30,7 +31,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getProductsProcess()),
-    addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
+    addToCart: item => dispatch(addToCartProcess(item)),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }

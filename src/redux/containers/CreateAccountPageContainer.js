@@ -7,6 +7,7 @@ import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state) {
   return {
+    cartItems: state.cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }

@@ -11,7 +11,7 @@ export default class CreateAccountPage extends Component {
   render() {
     return (
       <div className="CreateAccountPage">
-        <NavbarComponent />
+        <NavbarComponent cartItems={this.props.cartItems} />
         <CreateAccountForm onSubmit={this.props.onSubmit} />
       </div>
     );

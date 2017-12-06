@@ -98,7 +98,7 @@ export default function rootReducer(currentState, action) {
           ...currentState.usersById,
           [currentState.authenticatedUserId]: undefined
         },
-        cartItems: undefined
+        cartItems: []
       };
     default:
       return currentState;

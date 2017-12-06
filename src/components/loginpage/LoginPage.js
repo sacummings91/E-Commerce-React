@@ -11,7 +11,7 @@ export default class LoginPage extends Component {
   render() {
     return (
       <div className="LoginPage">
-        <NavbarComponent />
+        <NavbarComponent cartItems={this.props.cartItems} />
         <LoginForm onSubmit={this.props.login} />
       </div>
     );

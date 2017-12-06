@@ -9,7 +9,6 @@ export default class NavbarComponent extends Component {
 
   render() {
     const { authenticatedUser } = this.props;
-    console.log(this.props);
     return (
       <div>
         <Menu inverted style={{ borderRadius: 0 }}>
