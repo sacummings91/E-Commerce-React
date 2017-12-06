@@ -21,7 +21,7 @@
 .call-to-action {
   background-image: url('./img/stevenbanner1.jpg');
   background-size: cover;
-  height: 400px;
+  height: 350px;
   width: 100%;
   position: relative;
 }

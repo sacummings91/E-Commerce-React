@@ -40,11 +40,12 @@ export default class ProductFormComponent extends Component {
 
     return (
       <div>
-        <div className="admin-selector">
+        <div className="admin-panel">
           <Dropdown
-            className="item-selector"
+            className="dropdown-menu"
             placeholder="Select Product"
             fluid
+            search
             selection
             options={products}
             onChange={this._selectProductClick}

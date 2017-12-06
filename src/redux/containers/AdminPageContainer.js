@@ -11,7 +11,6 @@ import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 import LogoutProcess from '../thunks/logoutProcess';
 
 function mapStateToProps(state, ownProps) {
-  console.log(state);
   return {
     clothingItems: state.clothingItems,
     cartItems: state.cartItems,
