@@ -1,7 +1,7 @@
 import { isEmpty } from '../utils/LangUtils';
 import env from '../env';
 
-export default async function getUser(id, { token }) {
+export default async function getUser(id, token) {
   try {
     const headers = isEmpty(token) ? {} : { Authorization: `Bearer ${token}` };
     const response = await fetch(`${env.API_BASE_URL}/users/${id}`, {
