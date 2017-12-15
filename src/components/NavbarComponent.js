@@ -8,6 +8,7 @@ export default class NavbarComponent extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { authenticatedUser } = this.props;
     return (
       <div>
@@ -44,8 +45,8 @@ export default class NavbarComponent extends Component {
               </NavLink>
             </Menu.Item>
           )}
-          {this.props.authenticatedUser &&
-          this.props.authenticatedUser.role === 'ROLE_ADMIN' ? (
+          {authenticatedUser &&
+          authenticatedUser.role === 'ROLE_ADMIN' ? (
             <Menu.Item link={false}>
               <NavLink className="admin" exact to="admin">
                 Admin

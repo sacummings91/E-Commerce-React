@@ -10,7 +10,7 @@ function mapStateToProps(state) {
   return {
     cartItems: state.cartItems,
     clothingItems: state.clothingItems,
-    userOrders: state.userOrders,
+    userOrders: state.userOrders || [],
     authenticatedUser: selectAuthenticatedUser(state)
   };
 }
