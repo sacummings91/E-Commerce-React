@@ -1,7 +1,7 @@
 import env from '../env';
 
 export default function createProduct(product) {
-  return fetch(`${env.API_BASE_URL}/items`, {
+  return fetch(`${env.API_BASE_URL}/item`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -10,9 +10,9 @@ export default function createProduct(product) {
       name: product.name,
       description: product.description,
       category: product.category,
-      isFeatured: product.isFeatured || false,
+      is_featured: product.isFeatured || false,
       price: product.price,
-      imageUrl: product.imageUrl
+      image_URL: product.imageUrl
     })
   })
     .then(response => {

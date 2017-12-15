@@ -74,6 +74,7 @@ export default class IndividualItemComponent extends Component {
   _favoriteItemClick = event => {
     event.preventDefault();
     const { item, authenticatedUser, onFavorite } = this.props;
+    console.log(authenticatedUser);
     const favorite = authenticatedUser.favorites.find(favorite => {
       return item.id === favorite.itemId;
     });
