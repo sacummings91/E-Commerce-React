@@ -6,6 +6,8 @@ import ClothingItemComponent from '../ClothingItemComponent';
 export default class ProfileInfo extends Component {
   render() {
     const { authenticatedUser, addToCart, userOrders } = this.props;
+    console.log(authenticatedUser.favoriteItems);
+    console.log(userOrders, "<<<< USERORDERS");
     return (
       <div>
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
@@ -49,7 +51,7 @@ export default class ProfileInfo extends Component {
                 {userOrders.map(order => (
                   <Table.Row key={order.id}>
                     <Table.Cell>{order.confirmationNum}</Table.Cell>
-                    <Table.Cell>{order.dateCreated}</Table.Cell>
+                    <Table.Cell>{order.total}</Table.Cell>
                   </Table.Row>
                 ))}
               </Table.Body>

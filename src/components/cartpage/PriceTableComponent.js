@@ -27,6 +27,9 @@ export default class PriceTableComponent extends Component {
     total = subtotal + tax;
     this.props.items.total = total
     console.log(this.props);
+    let itemIds = this.props.items.map(item => item.id)
+    this.props.items.itemIds = itemIds
+    console.log(itemIds);
 
     return (
       <div>
@@ -84,7 +87,7 @@ export default class PriceTableComponent extends Component {
 
   _onClick = event => {
     const { confirmOrder, authenticatedUser, items } = this.props;
-    confirmOrder(authenticatedUser.id, items.total);
+    confirmOrder(authenticatedUser.id, items.total, items.itemIds);
     toast('Order Successful!', {
       className: 'dark-toast',
       progressClassName: 'transparent-progress'
