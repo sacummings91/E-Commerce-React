@@ -55,7 +55,7 @@ export default class NavbarComponent extends Component {
           <Menu.Menu position="right">
             {authenticatedUser ? (
               <Menu.Item link={false}>
-                Logged In As: {authenticatedUser.username}
+                Welcome: {authenticatedUser.username}
               </Menu.Item>
             ) : null}
             <Menu.Item link={false}>

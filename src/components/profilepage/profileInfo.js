@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Header, Table } from 'semantic-ui-react';
+import { Header, Table, Grid } from 'semantic-ui-react';
 
 import ClothingItemComponent from '../ClothingItemComponent';
 
 export default class ProfileInfo extends Component {
   render() {
     const { authenticatedUser, addToCart, userOrders } = this.props;
-    console.log(authenticatedUser.favoriteItems);
-    console.log(userOrders, "<<<< USERORDERS");
     return (
       <div>
         <div style={{ marginTop: '20px', textAlign: 'center' }}>
@@ -39,11 +37,16 @@ export default class ProfileInfo extends Component {
             Orders
           </Header>
           <div>
+            <Grid
+              textAlign="center"
+              style={{ height: '100%' }}
+              verticalAlign="middle">
+              <Grid.Column style={{ maxWidth: 450 }}>
             <Table celled inverted>
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Confirmation Number</Table.HeaderCell>
-                  <Table.HeaderCell>Date Ordered</Table.HeaderCell>
+                  <Table.HeaderCell>Total</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
 
@@ -51,11 +54,13 @@ export default class ProfileInfo extends Component {
                 {userOrders.map(order => (
                   <Table.Row key={order.id}>
                     <Table.Cell>{order.confirmationNum}</Table.Cell>
-                    <Table.Cell>{order.total}</Table.Cell>
+                    <Table.Cell>${order.total}</Table.Cell>
                   </Table.Row>
                 ))}
               </Table.Body>
             </Table>
+          </Grid.Column>
+        </Grid>
           </div>
         </div>
       </div>

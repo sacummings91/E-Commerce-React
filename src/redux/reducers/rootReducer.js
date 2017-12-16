@@ -1,6 +1,6 @@
 export default function rootReducer(currentState, action) {
-  let user = Object.assign({}, currentState.usersById);
-
+  const usersById = currentState.usersById;
+  const authenticatedUser = usersById[currentState.authenticatedUserId];
   switch (action.type) {
     case 'GET_PRODUCTS':
       return {
@@ -27,27 +27,35 @@ export default function rootReducer(currentState, action) {
         )
       };
     case 'ADD_FAVORITE':
-      // TODO: spread operators or new method for immutable changes
-      user[currentState.authenticatedUserId].favoriteItems.push(
-        action.favoriteItem
-      );
-
-      user[currentState.authenticatedUserId].favorites.push(action.favorite);
       return {
         ...currentState,
-        usersById: user
+        usersById: {
+          ...usersById,
+          [authenticatedUser.id]: {
+            ...authenticatedUser,
+            favorites: [...authenticatedUser.favorites, action.favorite],
+            favoriteItems: [
+              ...authenticatedUser.favoriteItems,
+              action.favoriteItem
+            ]
+          }
+        }
       };
     case 'DELETE_FAVORITE':
-      user[currentState.authenticatedUserId].favorites = user[
-        currentState.authenticatedUserId
-      ].favorites.filter(item => item.id !== action.favorite.id);
-
-      user[currentState.authenticatedUserId].favoriteItems = user[
-        currentState.authenticatedUserId
-      ].favoriteItems.filter(item => item.id !== action.favorite.itemId);
       return {
         ...currentState,
-        usersById: user
+        usersById: {
+          ...usersById,
+          [authenticatedUser.id]: {
+            ...authenticatedUser,
+            favorites: authenticatedUser.favorites.filter(
+              item => item.id !== action.favorite.id
+            ),
+            favoriteItems: authenticatedUser.favoriteItems.filter(
+              item => item.id !== action.favorite.itemId
+            )
+          }
+        }
       };
     case 'CREATE_PRODUCT':
       return {
