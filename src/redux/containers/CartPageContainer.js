@@ -6,7 +6,6 @@ import createOrderProcess from '../thunks/createOrderProcess';
 import selectAuthenticatedUser from '../selectors/selectAuthenticatedUser';
 
 function mapStateToProps(state, ownProps) {
-  console.log(state, "<<<<< STATE");
   return {
     cartItems: state.cartItems,
     authenticatedUser: selectAuthenticatedUser(state)
@@ -16,7 +15,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     removeFromCart: index => dispatch({ type: 'REMOVE_ITEM', index }),
-    confirmOrder: ( id, total, itemIds ) => dispatch(createOrderProcess(id, total, itemIds)),
+    confirmOrder: (id, total, itemIds) =>
+      dispatch(createOrderProcess(id, total, itemIds)),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }

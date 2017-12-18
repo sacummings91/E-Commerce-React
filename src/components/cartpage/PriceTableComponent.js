@@ -25,11 +25,9 @@ export default class PriceTableComponent extends Component {
     }
     tax = subtotal * 0.09;
     total = subtotal + tax;
-    this.props.items.total = total
-    console.log(this.props);
-    let itemIds = this.props.items.map(item => item.id)
-    this.props.items.itemIds = itemIds
-    console.log(itemIds);
+    this.props.items.total = total;
+    let itemIds = this.props.items.map(item => item.id);
+    this.props.items.itemIds = itemIds;
 
     return (
       <div>

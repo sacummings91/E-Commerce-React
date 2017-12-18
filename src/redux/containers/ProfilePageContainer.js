@@ -18,6 +18,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: id => dispatch(getOrdersProcess(id)),
+    addToCart: item => dispatch({ type: 'ADD_ITEM', item }),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))
   };
 }

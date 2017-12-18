@@ -26,6 +26,11 @@ export default function rootReducer(currentState, action) {
           (item, index) => index !== action.index
         )
       };
+    case 'CLEAR_CART':
+      return {
+        ...currentState,
+        cartItems: []
+      };
     case 'ADD_FAVORITE':
       return {
         ...currentState,

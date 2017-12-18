@@ -42,25 +42,25 @@ export default class ProfileInfo extends Component {
               style={{ height: '100%' }}
               verticalAlign="middle">
               <Grid.Column style={{ maxWidth: 450 }}>
-            <Table celled inverted>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Confirmation Number</Table.HeaderCell>
-                  <Table.HeaderCell>Total</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
+                <Table celled inverted>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Confirmation Number</Table.HeaderCell>
+                      <Table.HeaderCell>Total</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
 
-              <Table.Body>
-                {userOrders.map(order => (
-                  <Table.Row key={order.id}>
-                    <Table.Cell>{order.confirmationNum}</Table.Cell>
-                    <Table.Cell>${order.total}</Table.Cell>
-                  </Table.Row>
-                ))}
-              </Table.Body>
-            </Table>
-          </Grid.Column>
-        </Grid>
+                  <Table.Body>
+                    {userOrders.map(order => (
+                      <Table.Row key={order.id}>
+                        <Table.Cell>{order.confirmationNum}</Table.Cell>
+                        <Table.Cell>${order.total}</Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              </Grid.Column>
+            </Grid>
           </div>
         </div>
       </div>

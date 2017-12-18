@@ -7,7 +7,13 @@ export default class ProfilePage extends Component {
   static defaultProps = {};
 
   render() {
-    const { authenticatedUser, logout, cartItems, userOrders } = this.props;
+    const {
+      authenticatedUser,
+      logout,
+      cartItems,
+      userOrders,
+      addToCart
+    } = this.props;
     return authenticatedUser ? (
       <div className="ProfilePage">
         <NavbarComponent
@@ -18,6 +24,7 @@ export default class ProfilePage extends Component {
         <ProfileInfo
           userOrders={userOrders}
           authenticatedUser={authenticatedUser}
+          addToCart={addToCart}
         />
       </div>
     ) : (
