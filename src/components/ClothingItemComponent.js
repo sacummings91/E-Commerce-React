@@ -20,7 +20,10 @@ export default function ClothingItemComponent({ item, addToCart }) {
         />
         <Card.Content>
           <Header as="h4" className="itemName" textAlign="center">
-            <NavLink exact to={`/products/${item.id}`}>
+            <NavLink
+              exact
+              to={`/products/${item.id}`}
+              style={{ color: 'black' }}>
               {item.name || 'N/A'}
             </NavLink>
           </Header>

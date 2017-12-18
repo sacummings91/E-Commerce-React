@@ -18,7 +18,8 @@ function getInitialState(authentication) {
     ? {
         clothingItems: [],
         clothingItem: {},
-        cartItems: []
+        cartItems: [],
+        usersById: {}
       }
     : {
         clothingItems: [],

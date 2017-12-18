@@ -130,3 +130,8 @@ button.ui.grey.button {
 .username {
   text-align: center;
 }
+
+.ui.card > .image > img,
+.ui.cards > .card > .image > img {
+  height: 300px;
+}

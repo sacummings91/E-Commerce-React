@@ -1,6 +1,6 @@
 export default function rootReducer(currentState, action) {
   const usersById = currentState.usersById;
-  const authenticatedUser = usersById[currentState.authenticatedUserId];
+  const authenticatedUser = usersById[currentState.authenticatedUserId] || {};
   switch (action.type) {
     case 'GET_PRODUCTS':
       return {

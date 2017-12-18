@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import './ProductForm.css';
-import { Form, Header, Segment, Dropdown } from 'semantic-ui-react';
+import { Form, Header, Segment, Dropdown, Grid } from 'semantic-ui-react';
 
 const categories = [
   { key: 's', text: 'Shirt', value: 'Shirts' },
@@ -55,80 +55,13 @@ export default class ProductFormComponent extends Component {
             UPDATE PRODUCTS
           </Header>
         </div>
-        <Segment inverted style={{ borderRadius: 0 }}>
-          <Form inverted onSubmit={this._submitProductClick}>
-            <ToastContainer
-              position="top-right"
-              type="default"
-              autoClose={2000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              pauseOnHover
-            />
-            <Form.Group>
-              <Form.Input
-                label="Product Name"
-                name="name"
-                placeholder="Product Name"
-                value={this.state.formValues.name}
-                onChange={this._handleChangeFormValue}
-                width={6}
-              />
-              <Form.Select
-                label="category"
-                options={categories}
-                name="category"
-                placeholder="Category"
-                value={this.state.formValues.category}
-                onChange={this._handleChangeFormValue}
-                width={4}
-              />
-              <Form.Input
-                label="Image Url"
-                name="imageUrl"
-                placeholder="Image Url"
-                value={this.state.formValues.imageUrl}
-                onChange={this._handleChangeFormValue}
-                width={6}
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Input
-                label="description"
-                name="description"
-                placeholder="description"
-                value={this.state.formValues.description}
-                onChange={this._handleChangeFormValue}
-                width={14}
-              />
-              <Form.Input
-                label="price"
-                name="price"
-                placeholder="price"
-                value={this.state.formValues.price}
-                onChange={this._handleChangeFormValue}
-                width={2}
-              />
-            </Form.Group>
-            <Form.Checkbox
-              label="Featured Item"
-              name="isFeatured"
-              checked={this.state.formValues.isFeatured === true}
-              onChange={this._handleChangeFormValue}
-            />
-            <div className="update-buttons">
-              <Form.Button className="submit-new-item" color="grey">
-                Submit Item
-              </Form.Button>
-              <Form.Button onClick={this._clearFormClick}>
-                Clear Form
-              </Form.Button>
-              <Form.Button
-                className="delete-item"
-                color="red"
-                onClick={this._deleteProductClick}>
-                Delete Item
+        <Grid
+          textAlign="center"
+          style={{ height: '100%' }}
+          verticalAlign="middle">
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Segment inverted style={{ borderRadius: 0 }}>
+              <Form inverted onSubmit={this._submitProductClick}>
                 <ToastContainer
                   position="top-right"
                   type="default"
@@ -138,10 +71,78 @@ export default class ProductFormComponent extends Component {
                   closeOnClick
                   pauseOnHover
                 />
-              </Form.Button>
-            </div>
-          </Form>
-        </Segment>
+                <Form.Input
+                  label="Product Name"
+                  name="name"
+                  placeholder="Product Name"
+                  value={this.state.formValues.name}
+                  onChange={this._handleChangeFormValue}
+                />
+                <Form.Select
+                  label="category"
+                  options={categories}
+                  name="category"
+                  placeholder="Category"
+                  value={this.state.formValues.category}
+                  onChange={this._handleChangeFormValue}
+                />
+                <Form.Input
+                  label="Image Url"
+                  name="imageUrl"
+                  placeholder="Image Url"
+                  value={this.state.formValues.imageUrl}
+                  onChange={this._handleChangeFormValue}
+                />
+                <Form.Input
+                  label="description"
+                  name="description"
+                  placeholder="description"
+                  value={this.state.formValues.description}
+                  onChange={this._handleChangeFormValue}
+                />
+                <Form.Input
+                  label="price"
+                  name="price"
+                  placeholder="price"
+                  value={this.state.formValues.price}
+                  onChange={this._handleChangeFormValue}
+                />
+                <Form.Checkbox
+                  label="Featured Item"
+                  name="isFeatured"
+                  checked={this.state.formValues.isFeatured === true}
+                  onChange={this._handleChangeFormValue}
+                />
+                <div className="update-buttons">
+                  <Form.Button
+                    positive
+                    className="submit-new-item"
+                    color="grey">
+                    Submit Item
+                  </Form.Button>
+                  <Form.Button
+                    className="delete-item"
+                    color="red"
+                    onClick={this._deleteProductClick}>
+                    Delete Item
+                    <ToastContainer
+                      position="top-right"
+                      type="default"
+                      autoClose={2000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      pauseOnHover
+                    />
+                  </Form.Button>
+                  <Form.Button onClick={this._clearFormClick}>
+                    Clear Form
+                  </Form.Button>
+                </div>
+              </Form>
+            </Segment>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
