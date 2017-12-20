@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProfileInfo from './profileInfo';
 import NavbarComponent from './../NavbarComponent';
+import OrderTable from './orderTable';
 
 export default class ProfilePage extends Component {
   static defaultProps = {};
@@ -11,8 +12,9 @@ export default class ProfilePage extends Component {
       authenticatedUser,
       logout,
       cartItems,
-      userOrders,
-      addToCart
+      orderInfo,
+      addToCart,
+      clothingItems
     } = this.props;
     return authenticatedUser ? (
       <div className="ProfilePage">
@@ -22,10 +24,10 @@ export default class ProfilePage extends Component {
           authenticatedUser={authenticatedUser}
         />
         <ProfileInfo
-          userOrders={userOrders}
           authenticatedUser={authenticatedUser}
           addToCart={addToCart}
         />
+        <OrderTable clothingItems={clothingItems} orderInfo={orderInfo} />
       </div>
     ) : (
       <div>

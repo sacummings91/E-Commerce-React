@@ -2,16 +2,13 @@ import createProduct from './createProduct';
 
 let mockDataResponse = {
   id: 1,
-  fields: {
-    nid: 123,
-    name: 'Triple Triangle Tee',
-    description: '100% Cotton Tee With Printed Graphic',
-    category: 'Shirt',
-    isFeatured: true,
-    price: 30,
-    imageUrl:
-      'https://www.hufworldwide.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/T/R/TRIPLE-TRIANGLE-TEE_ARTIC-GREY_TS00057_ARCGY_01.jpg'
-  }
+  name: 'Triple Triangle Tee',
+  description: '100% Cotton Tee With Printed Graphic',
+  category: 'Shirt',
+  isFeatured: true,
+  price: 30.0,
+  imageUrl:
+    'https://www.hufworldwide.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/T/R/TRIPLE-TRIANGLE-TEE_ARTIC-GREY_TS00057_ARCGY_01.jpg'
 };
 
 describe('createProduct', () => {
@@ -23,7 +20,7 @@ describe('createProduct', () => {
       description: '100% Cotton Tee With Printed Graphic',
       category: 'Shirt',
       isFeatured: true,
-      price: 30,
+      price: 30.0,
       imageUrl:
         'https://www.hufworldwide.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/T/R/TRIPLE-TRIANGLE-TEE_ARTIC-GREY_TS00057_ARCGY_01.jpg'
     };
@@ -32,8 +29,7 @@ describe('createProduct', () => {
       expect(newProduct).toEqual({
         ...product,
         id: 1,
-        nid: 123,
-        price: '30.00'
+        price: 30.0
       });
     });
   });

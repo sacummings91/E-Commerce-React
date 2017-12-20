@@ -84,8 +84,20 @@ a.add-to-cart {
   color: white;
 }
 
-.ui.black.button.add-to-cart-button {
+.ClothingItemComponent .ui.card > .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ClothingItemComponent h4.ui.header {
+  margin: 0;
+  flex: 1;
+}
+
+.ClothingItemComponent .ui.black.button.add-to-cart-button {
   width: 100%;
+  margin: 0;
 }
 
 h2.ui.header {
@@ -133,5 +145,15 @@ button.ui.grey.button {
 
 .ui.card > .image > img,
 .ui.cards > .card > .image > img {
-  height: 300px;
+  height: 290px;
+}
+
+.open {
+  height: auto;
+  overflow: hidden;
+}
+
+.close {
+  height: 0;
+  overflow: hidden;
 }

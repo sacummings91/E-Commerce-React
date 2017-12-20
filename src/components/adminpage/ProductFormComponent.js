@@ -78,8 +78,15 @@ export default class ProductFormComponent extends Component {
                   value={this.state.formValues.name}
                   onChange={this._handleChangeFormValue}
                 />
+                <Form.Input
+                  label="Description"
+                  name="description"
+                  placeholder="Description"
+                  value={this.state.formValues.description}
+                  onChange={this._handleChangeFormValue}
+                />
                 <Form.Select
-                  label="category"
+                  label="Category"
                   options={categories}
                   name="category"
                   placeholder="Category"
@@ -94,16 +101,9 @@ export default class ProductFormComponent extends Component {
                   onChange={this._handleChangeFormValue}
                 />
                 <Form.Input
-                  label="description"
-                  name="description"
-                  placeholder="description"
-                  value={this.state.formValues.description}
-                  onChange={this._handleChangeFormValue}
-                />
-                <Form.Input
-                  label="price"
+                  label="Price"
                   name="price"
-                  placeholder="price"
+                  placeholder="Price"
                   value={this.state.formValues.price}
                   onChange={this._handleChangeFormValue}
                 />

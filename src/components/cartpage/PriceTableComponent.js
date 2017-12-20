@@ -30,7 +30,7 @@ export default class PriceTableComponent extends Component {
     this.props.items.itemIds = itemIds;
 
     return (
-      <div>
+      <div style={{ marginTop: '50px' }}>
         <Header className="overview" as="h1">
           OVERVIEW
         </Header>

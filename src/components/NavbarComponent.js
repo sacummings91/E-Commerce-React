@@ -44,8 +44,7 @@ export default class NavbarComponent extends Component {
               </NavLink>
             </Menu.Item>
           )}
-          {authenticatedUser &&
-          authenticatedUser.role === 'ROLE_ADMIN' ? (
+          {authenticatedUser && authenticatedUser.role === 'ROLE_ADMIN' ? (
             <Menu.Item link={false}>
               <NavLink className="admin" exact to="admin">
                 Admin

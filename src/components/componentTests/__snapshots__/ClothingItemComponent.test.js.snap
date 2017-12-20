@@ -11,48 +11,58 @@ ShallowWrapper {
   "node": <div
     className="ClothingItemComponent"
 >
-    <Card>
+    <Card
+        style={
+            Object {
+                "height": "450px",
+                "maxWidth": "210px",
+              }
+        }
+    >
         <Image
             alt="Black Tee"
-            as="img"
+            as={[Function]}
+            exact={true}
+            fluid={true}
             src="//via.placeholder.com/264x264"
+            to="/products/undefined"
             ui={true}
         />
         <CardContent>
             <Header
-                as="h2"
+                as="h4"
+                className="itemName"
                 textAlign="center"
             >
                 <NavLink
                     activeClassName="active"
                     ariaCurrent="true"
                     exact={true}
+                    style={
+                        Object {
+                            "color": "black",
+                          }
+                    }
                     to="/products/undefined"
                 >
                     Black Tee
                 </NavLink>
             </Header>
             <Header
-                as="h3"
+                as="h4"
                 textAlign="center"
             >
                 $24.99
             </Header>
             <Button
-                as="button"
+                as={[Function]}
                 className="add-to-cart-button"
                 color="black"
+                exact={true}
                 onClick={[Function]}
+                to="/cart"
             >
-                <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="add-to-cart"
-                    exact={true}
-                    to="/cart"
-                >
-                    Add To Cart
-                </NavLink>
+                Add To Cart
             </Button>
         </CardContent>
     </Card>
@@ -61,48 +71,58 @@ ShallowWrapper {
     <div
       className="ClothingItemComponent"
 >
-      <Card>
+      <Card
+            style={
+                  Object {
+                        "height": "450px",
+                        "maxWidth": "210px",
+                      }
+            }
+      >
             <Image
                   alt="Black Tee"
-                  as="img"
+                  as={[Function]}
+                  exact={true}
+                  fluid={true}
                   src="//via.placeholder.com/264x264"
+                  to="/products/undefined"
                   ui={true}
             />
             <CardContent>
                   <Header
-                        as="h2"
+                        as="h4"
+                        className="itemName"
                         textAlign="center"
                   >
                         <NavLink
                               activeClassName="active"
                               ariaCurrent="true"
                               exact={true}
+                              style={
+                                    Object {
+                                          "color": "black",
+                                        }
+                              }
                               to="/products/undefined"
                         >
                               Black Tee
                         </NavLink>
                   </Header>
                   <Header
-                        as="h3"
+                        as="h4"
                         textAlign="center"
                   >
                         $24.99
                   </Header>
                   <Button
-                        as="button"
+                        as={[Function]}
                         className="add-to-cart-button"
                         color="black"
+                        exact={true}
                         onClick={[Function]}
+                        to="/cart"
                   >
-                        <NavLink
-                              activeClassName="active"
-                              ariaCurrent="true"
-                              className="add-to-cart"
-                              exact={true}
-                              to="/cart"
-                        >
-                              Add To Cart
-                        </NavLink>
+                        Add To Cart
                   </Button>
             </CardContent>
       </Card>
@@ -161,48 +181,58 @@ ShallowWrapper {
         "_currentElement": <div
           className="ClothingItemComponent"
 >
-          <Card>
+          <Card
+                    style={
+                              Object {
+                                        "height": "450px",
+                                        "maxWidth": "210px",
+                                      }
+                    }
+          >
                     <Image
                               alt="Black Tee"
-                              as="img"
+                              as={[Function]}
+                              exact={true}
+                              fluid={true}
                               src="//via.placeholder.com/264x264"
+                              to="/products/undefined"
                               ui={true}
                     />
                     <CardContent>
                               <Header
-                                        as="h2"
+                                        as="h4"
+                                        className="itemName"
                                         textAlign="center"
                               >
                                         <NavLink
                                                   activeClassName="active"
                                                   ariaCurrent="true"
                                                   exact={true}
+                                                  style={
+                                                            Object {
+                                                                      "color": "black",
+                                                                    }
+                                                  }
                                                   to="/products/undefined"
                                         >
                                                   Black Tee
                                         </NavLink>
                               </Header>
                               <Header
-                                        as="h3"
+                                        as="h4"
                                         textAlign="center"
                               >
                                         $24.99
                               </Header>
                               <Button
-                                        as="button"
+                                        as={[Function]}
                                         className="add-to-cart-button"
                                         color="black"
+                                        exact={true}
                                         onClick={[Function]}
+                                        to="/cart"
                               >
-                                        <NavLink
-                                                  activeClassName="active"
-                                                  ariaCurrent="true"
-                                                  className="add-to-cart"
-                                                  exact={true}
-                                                  to="/cart"
-                                        >
-                                                  Add To Cart
-                                        </NavLink>
+                                        Add To Cart
                               </Button>
                     </CardContent>
           </Card>
@@ -211,48 +241,58 @@ ShallowWrapper {
         "_renderedOutput": <div
           className="ClothingItemComponent"
 >
-          <Card>
+          <Card
+                    style={
+                              Object {
+                                        "height": "450px",
+                                        "maxWidth": "210px",
+                                      }
+                    }
+          >
                     <Image
                               alt="Black Tee"
-                              as="img"
+                              as={[Function]}
+                              exact={true}
+                              fluid={true}
                               src="//via.placeholder.com/264x264"
+                              to="/products/undefined"
                               ui={true}
                     />
                     <CardContent>
                               <Header
-                                        as="h2"
+                                        as="h4"
+                                        className="itemName"
                                         textAlign="center"
                               >
                                         <NavLink
                                                   activeClassName="active"
                                                   ariaCurrent="true"
                                                   exact={true}
+                                                  style={
+                                                            Object {
+                                                                      "color": "black",
+                                                                    }
+                                                  }
                                                   to="/products/undefined"
                                         >
                                                   Black Tee
                                         </NavLink>
                               </Header>
                               <Header
-                                        as="h3"
+                                        as="h4"
                                         textAlign="center"
                               >
                                         $24.99
                               </Header>
                               <Button
-                                        as="button"
+                                        as={[Function]}
                                         className="add-to-cart-button"
                                         color="black"
+                                        exact={true}
                                         onClick={[Function]}
+                                        to="/cart"
                               >
-                                        <NavLink
-                                                  activeClassName="active"
-                                                  ariaCurrent="true"
-                                                  className="add-to-cart"
-                                                  exact={true}
-                                                  to="/cart"
-                                        >
-                                                  Add To Cart
-                                        </NavLink>
+                                        Add To Cart
                               </Button>
                     </CardContent>
           </Card>

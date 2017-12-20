@@ -9,7 +9,7 @@ export default function ClothingItemComponent({ item, addToCart }) {
 
   return (
     <div className="ClothingItemComponent">
-      <Card style={{ maxWidth: '220px' }}>
+      <Card style={{ maxWidth: '210px', height: '450px' }}>
         <Image
           fluid
           src={item.imageUrl}
