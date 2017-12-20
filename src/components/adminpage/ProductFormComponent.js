@@ -26,6 +26,7 @@ export default class ProductFormComponent extends Component {
   }
 
   render() {
+    console.log(this.props);
     let products = [];
     if (this.props.clothingItems) {
       products = this.props.clothingItems.map(item => {
@@ -154,10 +155,15 @@ export default class ProductFormComponent extends Component {
       className: 'dark-toast',
       progressClassName: 'transparent-progress'
     });
-    onSubmit({
-      ...this.state.formValues,
-      price: parseFloat(this.state.formValues.price)
-    }).then(() => {
+    onSubmit(
+      {
+        ...this.state.formValues,
+        is_featured: this.state.formValues.isFeatured,
+        image_URL: this.state.formValues.imageUrl,
+        price: parseFloat(this.state.formValues.price)
+      },
+      this.props.authenticatedUser.id
+    ).then(() => {
       this.setState({
         formValues: {
           name: '',

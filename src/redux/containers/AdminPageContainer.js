@@ -21,9 +21,9 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     onMount: () => dispatch(getProductsProcess()),
-    onSubmit: ({ id, ...changes }) =>
+    onSubmit: ({ id, ...changes }, userId) =>
       id
-        ? dispatch(updateProductProcess(id, changes))
+        ? dispatch(updateProductProcess(id, changes, userId))
         : dispatch(createProductProcess(changes)),
     onDelete: ({ id }) => dispatch(deleteProductProcess(id)),
     logout: () => dispatch(LogoutProcess.create(ownProps.history))

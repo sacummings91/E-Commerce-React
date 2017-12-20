@@ -22,6 +22,7 @@ export default function AdminPage({
         onSubmit={onSubmit}
         onDelete={onDelete}
         clothingItems={clothingItems}
+        authenticatedUser={authenticatedUser}
       />
     </AdminPageLayout>
   ) : (
