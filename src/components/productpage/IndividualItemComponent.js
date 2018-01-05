@@ -16,10 +16,12 @@ export default class IndividualItemComponent extends Component {
 
   render() {
     const { item, authenticatedUser } = this.props;
-    let favorite
-    authenticatedUser ? favorite = authenticatedUser.favorites.find(favorite => {
-      return item.id === favorite.itemId;
-    }) : favorite = null
+    let favorite;
+    authenticatedUser
+      ? (favorite = authenticatedUser.favorites.find(favorite => {
+          return item.id === favorite.itemId;
+        }))
+      : (favorite = null);
 
     return !item ? null : (
       <div className="IndividualItemComponent">
@@ -74,7 +76,6 @@ export default class IndividualItemComponent extends Component {
   _favoriteItemClick = event => {
     event.preventDefault();
     const { item, authenticatedUser, onFavorite } = this.props;
-    console.log(authenticatedUser);
     const favorite = authenticatedUser.favorites.find(favorite => {
       return item.id === favorite.itemId;
     });

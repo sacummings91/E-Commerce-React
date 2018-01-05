@@ -26,7 +26,6 @@ export default class ProductFormComponent extends Component {
   }
 
   render() {
-    console.log(this.props);
     let products = [];
     if (this.props.clothingItems) {
       products = this.props.clothingItems.map(item => {

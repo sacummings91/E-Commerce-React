@@ -12,7 +12,6 @@ describe('getProductProcess', () => {
     const thunk = getProductProcess();
     expect(typeof thunk).toBe('function');
 
-    console.log(data.products[0]);
     getProduct.mockReturnValueOnce(Promise.resolve([data.products[0]]));
 
     const dispatch = jest.fn();
