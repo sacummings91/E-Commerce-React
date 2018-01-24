@@ -56,6 +56,7 @@ export default class LoginForm extends Component {
         password: password.value || ''
       })
       .catch(error => {
+        console.log(error);
         console.log(error.message);
         if (
           error.message.startsWith('AuthenticationService.ERROR_UNEXPECTED')
