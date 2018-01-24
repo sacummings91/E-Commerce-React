@@ -78,8 +78,8 @@ export default class CreateAccountForm extends Component {
       repeatPassword
     } = event.target;
     this.props.onSubmit({
-      first_name: (firstName.value || '').trim(),
-      last_name: (lastName.value || '').trim(),
+      firstName: (firstName.value || '').trim(),
+      lastName: (lastName.value || '').trim(),
       email: email.value || '',
       username: username.value || '',
       password: password.value || '',
