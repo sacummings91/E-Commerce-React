@@ -12,7 +12,7 @@ export default async function checkAuthentication({ baseUrl }) {
       return null;
     }
 
-    const { identity: userId, exp: timeExpires } = decode(token);
+    const { sub: userId, exp: timeExpires } = decode(token);
 
     if (timeExpires * 1000 < Date.now()) {
       localStorage.removeItem('token');

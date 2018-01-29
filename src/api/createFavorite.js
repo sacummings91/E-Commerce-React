@@ -7,8 +7,8 @@ export default function createFavorite(userId, itemId) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      user_id: userId,
-      item_id: itemId
+      userId: userId,
+      itemId: itemId
     })
   })
     .then(response => {

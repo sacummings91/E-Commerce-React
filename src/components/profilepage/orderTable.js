@@ -4,9 +4,10 @@ import OrderRow from './orderRow';
 
 export default class OrderTable extends Component {
   render() {
+    console.log(this.props);
     const { orderInfo, clothingItems } = this.props;
     let itemIds = orderInfo.orderItems
-      ? orderInfo.orderItems.map(item => item.item_id)
+      ? orderInfo.orderItems.map(item => item.itemId)
       : [];
     let orderItems = clothingItems.filter(clothingItem =>
       itemIds.includes(clothingItem.id)

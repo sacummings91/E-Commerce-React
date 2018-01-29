@@ -7,10 +7,10 @@ export default function createOrder(id, total, itemIds) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      confirmation_num: Math.floor(1000000 + Math.random() * 9000000),
-      user_id: id,
+      confirmationNum: Math.floor(1000000 + Math.random() * 9000000),
+      userId: id,
       total: total,
-      item_ids: itemIds
+      itemIds: itemIds
     })
   })
     .then(response => {

@@ -7,7 +7,7 @@ export default class OrderRow extends Component {
 
   render() {
     const order = this.props.order;
-    let orderItemIds = this.props.orderItems.map(item => item.item_id);
+    let orderItemIds = this.props.orderItems.map(item => item.itemId);
     let clothingItems = this.props.clothingItems.filter(item =>
       orderItemIds.includes(item.id)
     );
